@@ -1,0 +1,298 @@
+.login-template-body {
+    background-color: beige;
+    font-family: sans-serif;
+}
+
+.browse-template-body {
+    background-color: beige;
+    font-family: sans-serif;
+}
+
+.login-form-container {
+    background-color: white;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-form-container legend{
+    font-weight: bold;
+}
+
+.login-form-input {
+    margin-bottom: 3px;
+}
+
+.login-form-input label {
+    width: 100px;
+    display: inline-block;
+}
+
+
+
+.login-form-input input {
+    width: 160px;
+}
+
+.error-message-wide {
+    background-color: #ffcccc;
+    padding: 3px 6px;
+    margin: 3px 0px;
+    border-radius: 3px;
+}
+
+.browse-container {
+    background-color: white;
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.employee-form-input {
+    margin-bottom: 6px;
+}
+
+.employee-form-input label {
+    width: 180px;
+    display: inline-block;
+}
+
+.employee-form-input input[type="text"] {
+    width: 250px;
+}
+.employee-form-input input[type="email"] {
+    width: 250px;
+}
+.employee-form-input input[type="password"] {
+    width: 250px;
+}
+.emp-input-error-message {
+    margin-left: 180px;
+    font-size: 80%;
+    font-weight: bold;
+    padding-left: 6px;
+    color: red;
+    margin-top: 3px;
+}
+
+.details-form-input {
+    margin-bottom: 3px;
+}
+
+.details-form-input label {
+    width: 80px;
+    display: inline-block;
+}
+
+.details-form-input textarea {
+    margin-left: 0px;
+}
+
+.details-form-input input[type="checkbox"] {
+    margin-left: 84px;
+}
+
+.checkbox-label {
+    width: inherit;
+}
+
+.book-input-error-message {
+    font-size: 80%;
+    font-weight: bold;
+    padding-left: 6px;
+    color: red;
+    margin-top: 3px;
+}
+
+.det-input-error-message {
+    font-size: 80%;
+    font-weight: bold;
+    padding-left: 6px;
+    color: red;
+    margin-top: 3px;
+    margin-left: 84px;
+}
+
+.navigation {
+    margin-left: 0px;
+    padding-left: 0px;
+    list-style-type: none;
+    background: #003366;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: inline-block;
+}
+
+.navigation li {
+    display: inline-block;
+}
+
+.navigation a {
+    display:inline-block;
+    padding:.2em 1em;
+    text-decoration:none;
+    color:#fff; /*цвет шрифта*/
+    background:#036; /*цвет фона*/
+    border-right:1px solid #fff; /* Цвет и толщина разделительной линии */
+}
+
+.navigation a:hover {
+    color:#00FF00; /* Цвет Текста при наведении мышки */
+    background:#FF0000; /* Цвет фона при наведении мышки */
+}
+
+.side-menu {
+    margin-left:0;
+    padding-left:0;
+    list-style-type:none;
+    margin-top: 1px;
+}
+
+.side-menu a {
+    display:block;
+    text-decoration:none;
+    color:#fff; /*цвет шрифта*/
+    background:#036; /*цвет фона*/
+    padding:.2em .5em;
+    border-bottom:1px solid #fff;
+    width:7em;
+}
+
+.side-menu a:hover {
+    color:#00FF00; /* Цвет Текста при наведении мышки */
+    background:#FF0000; /* Цвет фона при наведении мышки */
+}
+
+.side-menu li {
+    display:inline;
+}
+
+.browse-main-section {
+    display: inline-block;
+}
+
+.browse-side-menu {
+    display: inline-block;
+    float:right;
+}
+
+.employee-list {
+    margin-left: 0px;
+    padding-left: 0px;
+    list-style-type: none;
+    width: 100%;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.employee-list li {
+    margin-top:6px;
+    margin-bottom:6px;
+}
+
+.employee-list div {
+    display: inline-block;
+}
+
+.emp-list-name {
+    width: 200px;
+}
+
+.emp-list-remove {
+    width: 100px;
+    margin-left:12px;
+    margin-right:12px;
+}
+
+.emp-list-edit {
+    width: 100px;
+}
+
+.emp-add-btn {
+    display:inline-block;
+    text-decoration:none;
+    color:#fff; /*цвет шрифта*/
+    background:#036; /*цвет фона*/
+    padding:.2em .5em;
+    border:1px solid #fff;
+}
+
+.message-panel {
+    background-color: #e6ffcc;
+    padding: 6px;
+    font-weight: bold;
+}
+
+.informer-panel {
+    display: inline-block;
+    clear: both;
+    margin: 3px;
+    padding: 10px;
+    border: 2px solid;
+    font-weight: bold;
+}
+
+.logo {
+    display: inline-block;
+    color: #99ccff;
+    font-weight: bold;
+    padding: 0px 10px;
+    font-style: italic;
+}
+
+.nav-container {
+    background: #036;
+}
+
+.period-navigator {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 120%;
+    padding: 6px 12px;
+}
+.period-navigator a {
+    padding: 0px 10px;
+    text-decoration: none;
+}
+
+.cal-day {
+    display: inline-block;
+    font-size: 60%;
+    clear: both;
+}
+
+.cal-entry {
+    font-size: 75%;
+    display: inline-block;
+    width:100%;
+    text-align: center;
+}
+
+.cal-row {
+    height: 60px;
+}
+
+.browse-calendar table {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+.browse-calendar td {
+    border: 1px black solid;
+    width: 115px;
+    vertical-align: top;
+}
+.browse-calendar th {
+    border: 1px black solid;
+}
+
+.book-main-section legend {
+    font-weight: bold;
+}
+
+.error-message-panel {
+    background-color: #ffcccc;
+    padding: 3px;
+    font-weight: bold;
+    color: red;
+}
