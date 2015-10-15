@@ -11,6 +11,9 @@
             <file>tests/Core/RegistryTest.php</file>
             <file>tests/Core/ApplicationTest.php</file>
         </testsuite>
+        <testsuite name="DBMappers">
+            <file>tests/DBMappers/AppointmentItemMapperTest.php</file>
+        </testsuite>
         <testsuite name="Controllers">
             <file>tests/Controllers/BaseControllerTest.php</file>
         </testsuite>

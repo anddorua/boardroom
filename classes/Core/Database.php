@@ -16,15 +16,22 @@ class Database
     private $password = null;
     private $transactionCounter = 0;
     private $table_name_to_test;
-    private $database_creation_list;
+    private $db_statement_producer_class_name;
 
-    public function __construct($dbh, $user, $password, $table_name_to_test, array $database_creation_list)
+    /**
+     * @param $dbh
+     * @param $user
+     * @param $password
+     * @param $table_name_to_test string upon absence of this table in database we assume database not initialized
+     * @param $db_statement_producer_class_name string class name implements Iterator interface returning creation statements
+     */
+    public function __construct($dbh, $user, $password, $table_name_to_test, $db_statement_producer_class_name)
     {
         $this->dsn = $dbh;
         $this->user = $user;
         $this->password = $password;
         $this->table_name_to_test = $table_name_to_test;
-        $this->database_creation_list = $database_creation_list;
+        $this->db_statement_producer_class_name = $db_statement_producer_class_name;
     }
 
     private function sureDbhSet()
@@ -34,7 +41,8 @@ class Database
                 $this->dbh = new \PDO($this->dsn, $this->user, $this->password);
                 if (!$this->tableExists($this->dbh, $this->table_name_to_test)) {
                     // create all tables
-                    foreach($this->database_creation_list as $statement) {
+                    $producer_instance = new $this->db_statement_producer_class_name();
+                    foreach($producer_instance as $statement) {
                         $this->dbh->exec($statement);
                     }
                 }

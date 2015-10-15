@@ -6,7 +6,6 @@ error_reporting(E_ALL);
 
 require_once("include/constants.php");
 require_once("include/autoload.php");
-require_once("include/database_creation.php");
 // state templates [state] => [template file name]
 $templateMap = array(
     Core\Application::STATE_LOGIN => "LoginTemplate.html",
@@ -44,7 +43,7 @@ $registry->set(REG_DB, new \Core\Database(
     DB_USER,
     DB_PASSWORD,
     'appointments',
-    $database_creation));
+    '\\Utility\\DatabaseCreateScript'));
 
 (new \Core\Router())->start($registry);
 $app = $registry->get(REG_APP);
@@ -53,6 +52,5 @@ if ($app->getState() == \Core\Application::STATE_REDIRECT) {
 } else {
     echo (new \Core\View($vidgetViews))->renderState($app->getState(), $app->getAppData(), $templateMap, $registry);
 }
-//$registry->get(REG_APP)->renderState($registry);
 
 

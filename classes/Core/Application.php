@@ -9,8 +9,6 @@
 namespace Core;
 
 
-use Utility\Template;
-
 class Application
 {
     const STATE_LOGIN = 1;
@@ -30,8 +28,6 @@ class Application
     private $appData = array(); // application data, stores state of the app, used for render
 
     /**
-     * @param array $templateMap карта соответствий состоянний и темплейтов
-     * @param array $vidgetViews карта соответствий классов виджетов и их темплейтов
      * @param $siteRoot string каталог сайта. Если сайт в корневом каталоге, то "/", в противном случае "/somedir"
      * @param Session $session объект сессии, используется для хранения глобального состояния
      */

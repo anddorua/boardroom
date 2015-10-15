@@ -41,6 +41,17 @@ class Details extends BaseController
         $bookingData->setApplyChain($bookValues['apply_chain_proxy'] == 1);
     }
 
+    private function getValuesArray(\Application\AppointmentItem $appointment)
+    {
+        $values = array();
+        $values['start'] = $appointment->getTimeStart()->format('H:i');
+        $values['end'] = $appointment->getTimeEnd()->format('H:i');
+        $values['notes'] = $appointment->getNotes();
+        $values['submitted'] = $appointment->getSubmitted()->format('Y-m-d H:i:s');
+        $values['employee'] = $appointment->getEmpId();
+        return $values;
+    }
+
     public function act(\Core\Registry $registry, $urlParameters)
     {
         $db = $registry->get(REG_DB);
@@ -51,12 +62,7 @@ class Details extends BaseController
         $full_chain_count = $chain->count();
         $chain->applyFilter(new \DateTime());
         $can_modify = $chain->count() > 0;
-        $values = array();
-        $values['start'] = $appointment->getTimeStart()->format('H:i');
-        $values['end'] = $appointment->getTimeEnd()->format('H:i');
-        $values['notes'] = $appointment->getNotes();
-        $values['submitted'] = $appointment->getSubmitted()->format('Y-m-d H:i:s');
-        $values['employee'] = $appointment->getEmpId();
+        $values = $this->getValuesArray($appointment);
         $values['apply_chain_proxy'] = 0;
         $detailsErrors = array();
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
