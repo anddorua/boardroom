@@ -131,7 +131,7 @@ class AppointmentItem extends ArrayCapable
         return $testStartStamp < $myEndStamp && $myStartStamp < $testEndStamp;
     }
 
-    public function applyChange($bookingData)
+/*    public function applyChange($bookingData)
     {
         $t_start = date_parse($bookingData['start']);
         $new_date = (new \DateTime())->setTimestamp($this->getTimeStart()->getTimestamp());
@@ -145,5 +145,40 @@ class AppointmentItem extends ArrayCapable
         $this->setTimeEnd($new_date);
         $this->notes = $bookingData['notes'];
         $this->emp_id = $bookingData['employee'];
+    }*/
+
+    /**
+     * sets new time, leaving date the same
+     * @param $timeStart string like '07:15'
+     * @param $timeEnd string like '08:15'
+     */
+    public function setNewTime($timeStart, $timeEnd)
+    {
+        $t_start = date_parse($timeStart);
+        $new_date = (new \DateTime())->setTimestamp($this->getTimeStart()->getTimestamp());
+        $new_date->setTime($t_start['hour'], $t_start['minute']);
+        $this->setTimeStart($new_date);
+        $t_end = date_parse($timeEnd);
+        $new_date->setTime($t_end['hour'], $t_end['minute']);
+        if ($this->getTimeStart()->getTimestamp() > $new_date->getTimestamp()) {
+            $new_date->add(new \DateInterval('P1D'));
+        }
+        $this->setTimeEnd($new_date);
     }
+    /**
+     * @param mixed $notes
+     */
+    public function setNotes($notes)
+    {
+        $this->notes = $notes;
+    }
+
+    /**
+     * @param mixed $emp_id
+     */
+    public function setEmpId($emp_id)
+    {
+        $this->emp_id = $emp_id;
+    }
+
 }

@@ -9,51 +9,36 @@
 namespace Controllers;
 
 
+use Core\Application;
+
 class Details extends BaseController
 {
-    private function checkTimeValidity($start, $end)
-    {
-        $t_start = date_parse($start);
-        if ($t_start['error_count'] > 0) {
-            return implode(',', $t_start['errors']);
-        }
-        $t_end = date_parse($end);
-        if ($t_end['error_count'] > 0) {
-            return implode(',', $t_end['errors']);
-        }
-        $t_start_min = $t_start['hour'] * 60 + $t_start['minute'];
-        $t_end_min = $t_end['hour'] * 60 + $t_end['minute'];
-        if ($t_start_min < $t_end_min || ($t_end['hour'] == 0 && $t_end['minute'] == 0)) {
-            return '';
-        } else {
-            return 'start time should be less then end time';
-        }
-    }
-
-    private function validateForm($bookValues, &$bookErrors, &$bookingData)
+    private function validateForm($bookValues, &$bookErrors, \Application\BookingChange &$bookingData)
     {
         if (\Utility\Validator::IsFieldNotEmpty($bookValues, 'start')) {
-            $bookingData['start'] = $bookValues['start'];
+            $bookingData->setStart($bookValues['start']);
         } else {
             $bookErrors['time'] = 'start time should be filled.';
             return;
         }
         if (\Utility\Validator::IsFieldNotEmpty($bookValues, 'end')) {
-            $bookingData['end'] = $bookValues['end'];
+            $bookingData->setEnd($bookValues['end']);
         } else {
             $bookErrors['time'] = 'end time should be filled.';
             return;
         }
 
-        $bookErrors['time'] = $this->checkTimeValidity($bookValues['start'], $bookValues['end']);
+        if (!$bookingData->isTimeValid()) {
+            $bookErrors['time'] = $bookingData->getErrorMessage();
+        }
 
         if (\Utility\Validator::IsFieldNotEmpty($bookValues, 'notes')) {
-            $bookingData['notes'] = $bookValues['notes'];
+            $bookingData->setNotes($bookValues['notes']);
         } else {
             $bookErrors['notes'] = 'notes should be filled.';
         }
-        $bookingData['employee'] = $bookValues['employee'];
-        $bookingData['apply_chain'] = $bookValues['apply_chain_proxy'];
+        $bookingData->setEmpId($bookValues['employee']);
+        $bookingData->setApplyChain($bookValues['apply_chain_proxy'] == 1);
     }
 
     public function act(\Core\Registry $registry, $urlParameters)
@@ -86,11 +71,11 @@ class Details extends BaseController
         } else {
             //error_log("\npost:" . print_r($_POST, true), 3, 'my_errors.txt');
             $values = array_merge(array(), $_POST);
-            $bookingData = array();
+            $bookingData = new \Application\BookingChange();
             $this->validateForm($values, $detailsErrors, $bookingData);
             if ($this->isEmptyValues($detailsErrors)) {
                 //error_log("\nBookData:" . print_r($bookingData, true), 3, 'my_errors.txt');
-                if ($bookingData['apply_chain'] == 1) {
+                if ($bookingData->isApplyChain()) {
                     $chain->applyChange($bookingData);
                 } else {
                     $chain->applyChangeToMember($appointment->getId(), $bookingData);

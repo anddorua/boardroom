@@ -9,6 +9,8 @@
 namespace Application;
 
 
+use Core\Application;
+
 class AppointmentChain implements \Iterator
 {
     private $members = array();
@@ -28,6 +30,11 @@ class AppointmentChain implements \Iterator
         $this->members[] = $item;
     }
 
+    /**
+     * отсекает все события, которые закончились на момент фильтра
+     * @param AppointmentItem $member
+     * @return bool
+     */
     public function isMeetFilter(\Application\AppointmentItem $member)
     {
         if (is_null($this->timeFilter)) {
@@ -70,10 +77,14 @@ class AppointmentChain implements \Iterator
         }
     }
 
+    /**
+     * устанавливает новый chainId для всех членов цепочки. Не подвержена фильтрации.
+     * @param $newId
+     */
     public function setChainId($newId)
     {
-        foreach($this as $app) {
-            $app->setChain($newId);
+        for ($i = 0; $i < count($this->members); $i++) {
+            $this->members[$i]->setChain($newId);
         }
     }
 
@@ -98,20 +109,24 @@ class AppointmentChain implements \Iterator
         $this->timeFilter = null;
     }
 
-    public function applyChange(array $bookingData)
+    public function applyChange(\Application\BookingChange $bookingData)
     {
         $this->rewind();
         foreach($this as $member) {
-            $member->applyChange($bookingData);
+            $member->setNewTime($bookingData->getStart(), $bookingData->getEnd());
+            $member->setNotes($bookingData->getNotes());
+            $member->setEmpId($bookingData->getEmpId());
         }
     }
 
-    public function applyChangeToMember($empId, array $bookingData)
+    public function applyChangeToMember($empId, \Application\BookingChange $bookingData)
     {
         $this->rewind();
         foreach($this as $member) {
             if ($member->getId() == $empId) {
-                $member->applyChange($bookingData);
+                $member->setNewTime($bookingData->getStart(), $bookingData->getEnd());
+                $member->setNotes($bookingData->getNotes());
+                $member->setEmpId($bookingData->getEmpId());
                 break;
             }
         }
