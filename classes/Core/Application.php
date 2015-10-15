@@ -25,22 +25,37 @@ class Application
     const SECTION_REDIRECT = 'redirect_url';
 
     private $state;
-    private $templateMap;
-    private $vidgetViews;
     private $siteRoot;
     private $session;
     private $appData = array(); // application data, stores state of the app, used for render
 
     /**
-     * Application constructor.
+     * @param array $templateMap карта соответствий состоянний и темплейтов
+     * @param array $vidgetViews карта соответствий классов виджетов и их темплейтов
+     * @param $siteRoot string каталог сайта. Если сайт в корневом каталоге, то "/", в противном случае "/somedir"
+     * @param Session $session объект сессии, используется для хранения глобального состояния
      */
-    public function __construct($templateMap, $vidgetViews, $siteRoot, $session)
+    public function __construct($siteRoot, Session $session)
     {
-        $this->templateMap = $templateMap;
-        $this->vidgetViews = $vidgetViews;
         $this->siteRoot = $siteRoot;
         $this->session = $session;
         $this->state = self::STATE_LOGIN;
+    }
+
+    /**
+     * @return int
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * @return array
+     */
+    public function getAppData()
+    {
+        return $this->appData;
     }
 
     public function setStateLogin(array $stateValues)
@@ -93,70 +108,15 @@ class Application
     }
 
     /**
-     * Returns rendered content of the vidget collection, put to section
-     * @param $vidgetString string kind of 'Vidget1,Vidget2', found in data-vidgets attribute of the tag
-     * @return string rendered content
-     */
-    private function getVidgetSectionContent($vidgetString, Registry $registry)
-    {
-        $vidgetList = explode(',', $vidgetString);
-        $out = '';
-        foreach($vidgetList as $vidgetName) {
-            $out .= $this->getVidgetContent(trim($vidgetName), $registry);
-        }
-        return $out;
-    }
-
-    /**
-     * Calls vidget and return its rendered output
-     * @param $vidgetName string name of the vidget to load
-     * @return string
-     */
-    private function getVidgetContent($vidgetName, Registry $registry)
-    {
-        $className = 'Vidgets\\' . $vidgetName;
-        $vidgetTemplateName = $this->vidgetViews[$vidgetName];
-        return (new $className())->render($this->appData, $vidgetTemplateName, $registry);
-    }
-
-    /**
      * @param $url
      * @param int $statusCode
      */
-    private function redirect($url, $statusCode = 303)
+    public function redirect($url, $statusCode = 303)
     {
         $newLocation = $this->siteRoot . $url;
         //error_log("\nredirect to" . print_r($newLocation, true), 3, 'my_errors.txt');
         header('Location: ' . $newLocation, true, $statusCode);
         die();
-    }
-    /**
-     * Renders current app state
-     */
-    public function renderState(Registry $registry)
-    {
-        if ($this->state == self::STATE_REDIRECT) {
-            $this->redirect($this->appData[self::SECTION_REDIRECT]);
-        }
-        $out = '';
-        if (!is_null($this->templateMap[$this->state])) {{
-            //$templateContent = file_get_contents(TEMPLATE_ROOT . "/" . $this->templateMap[$this->state]);
-            $templateContent = (new \Utility\Template())->parse($this->templateMap[$this->state], array('site_root' => $registry->get(REG_SITE_ROOT)));
-
-            $foundVidgetPlaceCount = preg_match_all('<[\w\s="-;]*data-vidgets="([\w,\s]+)"[\w\s="-;]*>', $templateContent, $matches, PREG_OFFSET_CAPTURE);
-            //error_log('matches:' . print_r($matches, true), 3, 'my_errors.txt');
-            $prevPos = 0;
-            for($i = 0; $i < $foundVidgetPlaceCount; $i++) {
-                $vidgetContent = $this->getVidgetSectionContent($matches[1][$i][0], $registry);
-                $tagLength = strlen($matches[0][$i][0]) + 1;
-                $out .= substr($templateContent, $prevPos, $matches[0][$i][1] + $tagLength - $prevPos);
-                $out .= $vidgetContent;
-                $prevPos = $matches[0][$i][1] + $tagLength;
-            };
-            $out .= substr($templateContent, $prevPos);
-        }}
-        //error_log('out:' . print_r($out, true), 3, 'my_errors.txt');
-        echo $out;
     }
 
     public function isAuthorized()
@@ -192,14 +152,14 @@ class Application
         return $this->session->get('hour_mode');
     }
 
-    public function setRoomSelected(Registry $registry, $room_id)
+    public function setRoomSelected($room_id)
     {
-        $registry->get(REG_SESSION)->set('room_id', $room_id);
+        $this->session->set('room_id', $room_id);
     }
 
-    public function getRoomSelected(Registry $registry)
+    public function getRoomSelected()
     {
-        return $registry->get(REG_SESSION)->get('room_id');
+        return $this->session->get('room_id');
     }
 
     public function setMessage($msg)
@@ -212,7 +172,7 @@ class Application
     }
     public  function dropMessage()
     {
-        return $this->session->drop('message');
+        $this->session->drop('message');
     }
     public function reopenSession()
     {

@@ -15,7 +15,6 @@ class Navigation implements BaseVidget
     {
         $rooms = (new \DBMappers\RoomItem())->getAll($registry->get(REG_DB));
         $nav_items = array();
-        //$room_id_selected = $registry->get(REG_APP)->getRoomSelected($registry);
         foreach ($rooms as $room) {
             $nav_items[] = array(
                 'caption' => $room->getRoomName(),

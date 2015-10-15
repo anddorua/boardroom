@@ -94,7 +94,7 @@ class Details extends BaseController
                         'hour_mode' => $app->getHourMode()
                     ));
                 } else {
-                    if ($bookingData['apply_chain'] == 1) {
+                    if ($bookingData->isApplyChain()) {
                         foreach($chain as $member) {
                             $appMapper->save($member, $db);
                         }

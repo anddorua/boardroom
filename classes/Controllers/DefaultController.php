@@ -14,7 +14,7 @@ class DefaultController extends BaseController
     public function act(\Core\Registry $registry, $urlParameters)
     {
         $app = $registry->get(REG_APP);
-        if ($app->isAuthorized($registry)) {
+        if ($app->isAuthorized()) {
             $empItem = (new \DBMappers\EmpItem())->getById($app->getEmpId(), $registry->get(REG_DB));
             if ($empItem->isPasswordEqual(null)) {
                 $app->setStateRedirect(EMPLOYEE_URL . '/edit/' . $empItem->getId());

@@ -28,6 +28,7 @@ define('LOGIN_CONTROLLER', 'Login');
 define('EMPLOYEE_CONTROLLER', 'Employee');
 define('DEFAULT_ACTION', 'act');
 define('CONTROLLER_NAMESPACE', '\\Controllers');
+define('VIDGET_NAMESPACE', '\\Vidgets');
 define('BROWSE_URL', 'browse');
 define('LOGIN_URL', 'login');
 define('EMPLOYEE_URL', 'employee');

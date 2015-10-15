@@ -1,5 +1,10 @@
 <?php
     $day_names = array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+/*    error_log("\nbrowseCalendar:" . print_r($tpl_browse_calendar, true), 3, 'my_errors.txt');
+    error_log("\nbrowseCalendar:" . print_r($tpl_browse_first_day, true), 3, 'my_errors.txt');
+    error_log("\nbrowseCalendar:" . print_r($tpl_browse_hour_mode, true), 3, 'my_errors.txt');
+    error_log("\nbrowseCalendar:" . print_r($tpl_browse_period, true), 3, 'my_errors.txt');
+    error_log("\nbrowseCalendar:" . print_r($tpl_browse_site_root, true), 3, 'my_errors.txt');*/
 ?>
 <script type="text/javascript">
     function openDetailsWindow(el) {

@@ -7,5 +7,12 @@
             <file>tests/Application/BookingChangeTest.php</file>
             <file>tests/Application/AppointmentChainTest.php</file>
         </testsuite>
+        <testsuite name="Core">
+            <file>tests/Core/RegistryTest.php</file>
+            <file>tests/Core/ApplicationTest.php</file>
+        </testsuite>
+        <testsuite name="Controllers">
+            <file>tests/Controllers/BaseControllerTest.php</file>
+        </testsuite>
     </testsuites>
 </phpunit>
