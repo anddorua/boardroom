@@ -9,6 +9,8 @@
 namespace Controllers;
 
 
+use Application\BookingOrder;
+
 class Book extends BaseController
 {
 
@@ -25,65 +27,56 @@ class Book extends BaseController
         }
     }
 
-    private function validateForm($bookValues, &$bookErrors, &$bookingData, $hour_mode)
+    private function validateForm($bookValues, &$bookErrors, \Application\BookingOrder &$bookingOrder, $hour_mode)
     {
         if (\Utility\Validator::IsFieldNotEmpty($bookValues, 'employee')) {
-            $bookingData['employee'] = $bookValues['employee'];
+            $bookingOrder->setEmpId($bookValues['employee']);
         } else {
             $bookErrors['employee'] = 'employee should be filled.';
         }
         if (\Utility\Validator::IsDateValid($bookValues['start-year'], $bookValues['start-month'], $bookValues['start-day'])) {
-            $bookingData['start-date'] = (new \DateTime())->setDate($bookValues['start-year'], $bookValues['start-month'], $bookValues['start-day']);
+            $bookingOrder->setDate($bookValues['start-year'], $bookValues['start-month'], $bookValues['start-day']);
         } else {
             $bookErrors['start-date'] = 'date invalid';
             return;
         }
+        //error_log("\ndate set:" . print_r($bookingOrder, true), 3, 'my_errors.txt');
+
         if ($hour_mode == \Application\EmpItem::MODE_DAY_12) {
-            $hours = $this->hoursMerToFull($bookValues['start-hour-12'], $bookValues['start-meridiem']);
+            $bookingOrder->setStartTime12($bookValues['start-hour-12'], $bookValues['start-minute'], $bookValues['start-meridiem']);
+            $bookingOrder->setEndTime12($bookValues['end-hour-12'], $bookValues['end-minute'], $bookValues['end-meridiem']);
         } else {
-            $hours = $bookValues['start-hour-24'];
+            $bookingOrder->setStartTime24($bookValues['start-hour-24'], $bookValues['start-minute']);
+            $bookingOrder->setEndTime24($bookValues['end-hour-24'], $bookValues['end-minute']);
         }
-        $bookingData['start-date']->setTime($hours, $bookValues['start-minute']);
-        // нельзя назначить на прошлый период
+        //error_log("\ntime set:" . print_r($bookingOrder, true), 3, 'my_errors.txt');
+
         //error_log("\nstart-date:" . print_r($bookingData['start-date']->getTimestamp(), true), 3, 'my_errors.txt');
-        //error_log("\nnow:" . print_r((new \DateTime())->getTimestamp(), true), 3, 'my_errors.txt');
-        //todo: куда-то вынести эту проверку, она относится к бизнес-логике. наверное сделать отдельный объект для задания на формирование аппоинтмента
-        if ($bookingData['start-date']->getTimestamp() < (new \DateTime())->getTimestamp()) {
+        if (!$bookingOrder->isTimeValid()) {
+            $bookErrors['time'] = $bookingOrder->getErrorMessage();
+        }
+        // нельзя назначить на прошлый период
+        if ($bookingOrder->isPeriodBeforeTime(new \DateTime())) {
             $bookErrors['common'] = 'you cannot book for passed time';
         }
-        $bookingData['end-date'] = (new \DateTime())->setTimestamp($bookingData['start-date']->getTimestamp());
-        if ($hour_mode == \Application\EmpItem::MODE_DAY_12) {
-            $hours = $this->hoursMerToFull($bookValues['end-hour-12'], $bookValues['end-meridiem']);
-        } else {
-            $hours = $bookValues['end-hour-24'];
-        }
-        $bookingData['end-date']->setTime($hours, $bookValues['end-minute']);
-        // корректировка - если у даты окончания часы и минуты - нули, то это полночь следующего дня
-        //todo: точно-точно, вынести эту проверку отсюда
-        if ($bookingData['end-date']->format('G') == 0 && $bookingData['end-date']->format('i') == 0) {
-            $bookingData['end-date']->add(new \DateInterval('P1D'));
-        }
-        if ($bookingData['start-date']->getTimestamp() - $bookingData['end-date']->getTimestamp() == 0) {
-            $bookErrors['time'] = 'time cannot be equal';
-        } else if ($bookingData['start-date']->getTimestamp() - $bookingData['end-date']->getTimestamp() > 0) {
-            $bookErrors['time'] = 'start time should be less than end time';
-        }
         if (\Utility\Validator::IsFieldNotEmpty($bookValues, 'notes')) {
-            $bookingData['notes'] = $bookValues['notes'];
+            $bookingOrder->setNotes($bookValues['notes']);
         } else {
             $bookErrors['notes'] = 'notes should be filled.';
         }
-        $bookingData['recurring'] = $bookValues['recurring'] == 2;
-        if ($bookValues['recurring'] == 2) {
-            $bookingData['recurring-period'] = $bookValues['recurring-period'];
-            if (\Utility\Validator::IsFieldNotEmpty($bookValues, 'duration')) {
-                if (!is_numeric($bookValues['duration'])) {
-                    $bookErrors['duration'] = 'duration should be numeric.';
-                } else {
-                    $bookingData['duration'] = $bookValues['duration'];
-                }
+        if ($bookValues['recurring'] == 1) {
+            $bookingOrder->setRecurring(\Application\BookingOrder::NOT_RECURRING);
+        } else {
+            if (\Utility\Validator::IsFieldNotEmpty($bookValues, 'duration') && is_numeric($bookValues['duration'])) {
+                $cases = array(
+                    1 => BookingOrder::RECURRING_WEEKLY,
+                    2 => BookingOrder::RECURRING_BI_WEEKLY,
+                    3 => BookingOrder::RECURRING_MONTHLY,
+                );
+                $bookingOrder->setRecurring($cases[$bookValues['recurring-period']], $bookValues['duration']);
+                $bookValues['duration'] = $bookingOrder->getDuration();
             } else {
-                $bookErrors['duration'] = 'duration should be filled.';
+                $bookErrors['duration'] = 'duration should be filled with numeric value.';
             }
         }
     }
@@ -96,20 +89,18 @@ class Book extends BaseController
         } else if ($http->getRequestMethod() == 'POST') {
             $bookErrors = array();
             $bookValues = array_merge(array(), $http->post());
-            $bookingData = array();
-            $this->validateForm($bookValues, $bookErrors, $bookingData, $app->getHourMode());
-            //error_log("\nbookingData:" . print_r($bookingData, true), 3, 'my_errors.txt');
+            $bookingOrder = new \Application\BookingOrder();
+            $this->validateForm($bookValues, $bookErrors, $bookingOrder, $app->getHourMode());
+            //error_log("\nbookingData:" . print_r($bookingOrder, true), 3, 'my_errors.txt');
 
             if ($this->isEmptyValues($bookErrors)) {
                 $appMatcher = new \Application\AppointmentMatcher();
-                $chain = $appMatcher->makeChain($bookingData, $app->getEmpId(), $app->getCurrentRoom());
+                $chain = $appMatcher->makeChain($bookingOrder, $app->getEmpId(), $app->getCurrentRoom());
                 $db = $registry->get(REG_DB);
                 $crossings = $appMatcher->getCrossingAppointments($chain, new \DBMappers\AppointmentItem(), $db);
                 // test for crossing appointments
                 if (count($crossings) > 0) {
-
                     $message = \Utility\HtmlHelper::MakeCrossingMessage($crossings,  new \DBMappers\EmpItem(), $db);
-
                     $app->setStateBook(array(
                         'book_values' => $bookValues,
                         'book_errors' =>$bookErrors,
@@ -129,14 +120,7 @@ class Book extends BaseController
                         $appMapper->save($appointment, $db);
                     }
                     $chain->rewind();
-                    $message = '<span style="font-weight:normal">The event <strong>'
-                        . \Utility\DateHelper::FormatTimeAccordingRule($chain->current()->getTimeStart(), $app->getHourMode())
-                        . ' - '
-                        . \Utility\DateHelper::FormatTimeAccordingRule($chain->current()->getTimeEnd(), $app->getHourMode())
-                        . '</strong> has been added.<br>'
-                        . 'The text for this event is: '
-                        . $chain->current()->getNotes()
-                        . '</span>';
+                    $message = \Utility\HtmlHelper::MakeSuccessAppCreationMessage($chain->current(), $app->getHourMode());
                     $app->setMessage($message);
                     $app->setStateRedirect(BROWSE_URL);
                 }

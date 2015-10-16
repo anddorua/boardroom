@@ -36,7 +36,7 @@ class HtmlHelper
             echo "<option value=\"" . $key . "\"" . ($selectValue && $key == $selectValue ? ' selected' : '') . ">" . $value . "</option>";
         }
     }
-    public  static function MakeCrossingMessage(array $crossings, \DBMappers\EmpItem $empMapper, \Core\Database $db)
+    public static function MakeCrossingMessage(array $crossings, \DBMappers\EmpItem $empMapper, \Core\Database $db)
     {
         $message = 'Can\'t add appointment, it crosses existing appointments: ';
         foreach($crossings as $cross) {
@@ -45,6 +45,19 @@ class HtmlHelper
             $message .= ' ' . $cross->getTimeStart()->format('M-j-Y H:i');
             $message .= '-' . $cross->getTimeEnd()->format('H:i') . ';';
         }
+        return $message;
+    }
+
+    public static function MakeSuccessAppCreationMessage(\Application\AppointmentItem $leadingApp, $hourMode)
+    {
+        $message = '<span style="font-weight:normal">The event <strong>'
+            . \Utility\DateHelper::FormatTimeAccordingRule($leadingApp->getTimeStart(), $hourMode)
+            . ' - '
+            . \Utility\DateHelper::FormatTimeAccordingRule($leadingApp->getTimeEnd(), $hourMode)
+            . '</strong> has been added.<br>'
+            . 'The text for this event is: '
+            . $leadingApp->getNotes()
+            . '</span>';
         return $message;
     }
 }

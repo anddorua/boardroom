@@ -11,31 +11,27 @@ namespace Application;
 
 class AppointmentMatcher
 {
-    private function makeSameDateTime(\DateTime $src)
-    {
-        return (new \DateTime())->setTimestamp($src->getTimestamp());
-    }
-
     private function makeDatesChain(\DateTime $start_date, $recurring_period, $duration)
     {
         $event_dates = array($start_date);
         $step = null;
+        $duration_to_count = $duration;
         switch ($recurring_period) {
-            case 1: // weekly
+            case BookingOrder::RECURRING_WEEKLY:
                 $step = new \DateInterval('P7D');
                 break;
-            case 2: // bi-weekly
+            case BookingOrder::RECURRING_BI_WEEKLY:
                 $step = new \DateInterval('P14D');
+                $duration_to_count = $duration / 2;
                 break;
-            case 3: // bi-weekly
+            case BookingOrder::RECURRING_MONTHLY:
                 $step = new \DateInterval('P1M');
                 break;
         }
-        $duration_to_count = min($duration, 4);
-        $event_date = $this->makeSameDateTime($event_dates[0]);
+        $event_date = clone $event_dates[0];
         for ($i = 1; $i <= $duration_to_count; $i++) {
             $event_date->add($step);
-            $event_dates[] = $this->makeSameDateTime($event_date);
+            $event_dates[] = clone $event_date;
         }
         return $event_dates;
     }
@@ -47,19 +43,19 @@ class AppointmentMatcher
      * @param $roomId
      * @return AppointmentChain
      */
-    public function makeChain(array $bookingData, $creatorId, $roomId)
+    public function makeChain(\Application\BookingOrder $bookingOrder, $creatorId, $roomId)
     {
         $result = new AppointmentChain();
-        if ($bookingData['recurring']) {
-            $event_dates = $this->makeDatesChain($bookingData['start-date'], $bookingData['recurring-period'], $bookingData['duration']);
+        if ($bookingOrder->isRecurring()) {
+            $event_dates = $this->makeDatesChain($bookingOrder->getStartTime(), $bookingOrder->getRecurring(), $bookingOrder->getDuration());
         } else {
-            $event_dates = array($bookingData['start-date']);
+            $event_dates = array($bookingOrder->getStartTime());
         }
-        $event_duration = $bookingData['end-date']->getTimestamp() - $bookingData['start-date']->getTimestamp();
+        $event_duration = $bookingOrder->getEndTime()->getTimestamp() - $bookingOrder->getStartTime()->getTimestamp();
         foreach($event_dates as $event_date) {
             $appItem = new \Application\AppointmentItem(array(
-                'emp_id' => $bookingData['employee'],
-                'notes' => $bookingData['notes'],
+                'emp_id' => $bookingOrder->getEmpId(),
+                'notes' => $bookingOrder->getNotes(),
                 'creator_id' => $creatorId,
                 'room_id' => $roomId,
             ));

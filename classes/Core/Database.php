@@ -19,15 +19,15 @@ class Database
     private $db_statement_producer_class_name;
 
     /**
-     * @param $dbh
+     * @param $dsn
      * @param $user
      * @param $password
      * @param $table_name_to_test string upon absence of this table in database we assume database not initialized
      * @param $db_statement_producer_class_name string class name implements Iterator interface returning creation statements
      */
-    public function __construct($dbh, $user, $password, $table_name_to_test, $db_statement_producer_class_name)
+    public function __construct($dsn, $user, $password, $table_name_to_test, $db_statement_producer_class_name)
     {
-        $this->dsn = $dbh;
+        $this->dsn = $dsn;
         $this->user = $user;
         $this->password = $password;
         $this->table_name_to_test = $table_name_to_test;
@@ -134,4 +134,9 @@ class Database
         }
     }
 
+    public function close()
+    {
+        $this->commit();
+        $this->dbh = null;
+    }
 }

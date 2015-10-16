@@ -11,3 +11,10 @@
 include_once('SplClassLoader.php');
 $classLoader = new SplClassLoader('classes');
 $classLoader->register();
+$classLoader = new SplClassLoader('tests');
+$classLoader->register();
+
+define('TEST_DB_HOST', 'localhost'); // mysql server host
+define('TEST_DB_NAME', 'bdr_test'); // database name
+define('TEST_DB_USER', 'root'); // database user
+define('TEST_DB_PASSWORD', ''); // user password
