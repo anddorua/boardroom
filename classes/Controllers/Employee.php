@@ -13,7 +13,7 @@ class Employee extends BaseController
 {
     public function act(\Core\Registry $registry, $urlParameters)
     {
-        $registry->get(REG_APP)->setStateEmployee(array());
+        $this->edit($registry, $urlParameters);
     }
 
     private function validateLogin($value)
@@ -172,22 +172,23 @@ class Employee extends BaseController
         // 2) чужой аккаунт, если $urlParameters[0] != app->getEmpId && app->isAdmin()
         $app = $registry->get(REG_APP);
         if (!isset($urlParameters[0])) {
-            $urlParameters[0] = $app->getEmpId();
-        }
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $this->saveExistedEmployee($registry, $urlParameters);
-        } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-            $this->showEmployee(
-                $registry,
-                (new \DBMappers\EmpItem())->getById($urlParameters[0], $registry->get(REG_DB)),
-                isset($urlParameters[0]) && $urlParameters[0] == $app->getEmpId(),
-                false);
+            $app->setStateRedirect(BROWSE_URL);
+        } else {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $this->saveExistedEmployee($registry, $urlParameters);
+            } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                $this->showEmployee(
+                    $registry,
+                    (new \DBMappers\EmpItem())->getById($urlParameters[0], $registry->get(REG_DB)),
+                    isset($urlParameters[0]) && $urlParameters[0] == $app->getEmpId(),
+                    false);
+            }
         }
     }
     public function remove(\Core\Registry $registry, $urlParameters)
     {
         $app = $registry->get(REG_APP);
-        if (!$app->isAdmin()) {
+        if (!$app->isAdmin() || $registry->get(REG_HTTP)->getRequestMethod() != 'POST') {
             $app->setMessage('You cannot manage employees.');
             $app->setStateRedirect(BROWSE_URL);
         } else {

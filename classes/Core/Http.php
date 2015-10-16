@@ -19,6 +19,10 @@ class Http
     {
         return $_GET;
     }
+    public function getRequestMethod()
+    {
+        return $_SERVER['REQUEST_METHOD'];
+    }
     /**
      * @param $url
      * @param $siteRoot string
