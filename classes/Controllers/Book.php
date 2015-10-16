@@ -86,18 +86,16 @@ class Book extends BaseController
         }
     }
 
-    public function act(\Core\Registry $registry, $urlParameters)
+    public function act(\Core\Registry $registry, $urlParameters, \Core\Http $http)
     {
         $app = $registry->get(REG_APP);
-        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+        if ($http->getRequestMethod() == 'GET') {
             $app->setStateBook(array());
-        } else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        } else if ($http->getRequestMethod() == 'POST') {
             $bookErrors = array();
-            $bookValues = array_merge(array(), $_POST);
+            $bookValues = array_merge(array(), $http->post());
             $bookingData = array();
             $this->validateForm($bookValues, $bookErrors, $bookingData, $app->getHourMode());
-            //error_log("\nbookErrors:" . print_r($bookErrors, true), 3, 'my_errors.txt');
-            //error_log("\nbookValues:" . print_r($bookValues, true), 3, 'my_errors.txt');
             //error_log("\nbookingData:" . print_r($bookingData, true), 3, 'my_errors.txt');
 
             if ($this->isEmptyValues($bookErrors)) {

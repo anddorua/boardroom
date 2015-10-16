@@ -35,4 +35,9 @@ class Http
         header('Location: ' . $newLocation, true, $statusCode);
         die();
     }
+
+    public function setResponseBody($content)
+    {
+        echo $content;
+    }
 }

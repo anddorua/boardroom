@@ -13,29 +13,28 @@ use Application\EmpItem;
 
 class Login extends BaseController
 {
-    private function setWrongLoginState(\Core\Registry $registry)
+    private function setWrongLoginState(\Core\Application $app, $loginValue)
     {
-        $registry->get(REG_APP)->setStateLogin(array(
+        $app->setStateLogin(array(
             'login_error_message' => 'wrong login/password',
-            'login_field_login' => $_POST['login']
+            'login_field_login' => $loginValue
         ));
     }
 
-    public function act(\Core\Registry $registry, $urlParameters)
+    public function act(\Core\Registry $registry, $urlParameters, \Core\Http $http)
     {
         $app = $registry->get(REG_APP);
         $app->reopenSession();
-        if (isset($_POST['login'])) {
-            //error_log("\nPOST:" . print_r($_POST, true), 3, 'my_errors.txt');
-            $empItem = (new \DBMappers\EmpItem())->getByLogin($_POST['login'], $registry->get(REG_DB));
+        if (isset($http->post()['login'])) {
+            $loginValue = $http->post()['login'];
+            //error_log("\nPOST:" . print_r($http->post(), true), 3, 'my_errors.txt');
+            $empItem = (new \DBMappers\EmpItem())->getByLogin($loginValue, $registry->get(REG_DB));
             if (!$empItem) {
-                //error_log("\nemp not found", 3, 'my_errors.txt');
-                $this->setWrongLoginState($registry);
+                $this->setWrongLoginState($app, $loginValue);
                 return;
             }
-            if (!$empItem->isPasswordEqual($_POST['password'])) {
-                //error_log("\npassword not equal", 3, 'my_errors.txt');
-                $this->setWrongLoginState($registry);
+            if (!$empItem->isPasswordEqual($http->post()['password'])) {
+                $this->setWrongLoginState($app, $loginValue);
                 return;
             }
             $app->setAuthorized($empItem->getId(), $empItem->isAdmin(), $empItem->getFirstDay(), $empItem->getHourMode());
@@ -43,7 +42,5 @@ class Login extends BaseController
         } else {
             $app->setStateLogin(array());
         }
-        //$app->setStateLogin(array('login_error_message' => 'some error message'));
-
     }
 }

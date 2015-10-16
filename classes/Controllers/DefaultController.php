@@ -11,7 +11,7 @@ namespace Controllers;
 
 class DefaultController extends BaseController
 {
-    public function act(\Core\Registry $registry, $urlParameters)
+    public function act(\Core\Registry $registry, $urlParameters, \Core\Http $http)
     {
         $app = $registry->get(REG_APP);
         if ($app->isAuthorized()) {

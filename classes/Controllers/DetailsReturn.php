@@ -13,7 +13,7 @@ use Application\EmpItem;
 
 class DetailsReturn extends BaseController
 {
-    public function act(\Core\Registry $registry, $urlParameters)
+    public function act(\Core\Registry $registry, $urlParameters, \Core\Http $http)
     {
         $registry->get(REG_APP)->setStateDetailsReturn(array());
     }

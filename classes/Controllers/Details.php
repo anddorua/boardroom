@@ -52,7 +52,7 @@ class Details extends BaseController
         return $values;
     }
 
-    public function act(\Core\Registry $registry, $urlParameters)
+    public function act(\Core\Registry $registry, $urlParameters, \Core\Http $http)
     {
         $db = $registry->get(REG_DB);
         $app = $registry->get(REG_APP);
@@ -65,7 +65,7 @@ class Details extends BaseController
         $values = $this->getValuesArray($appointment);
         $values['apply_chain_proxy'] = 0;
         $detailsErrors = array();
-        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+        if ($http->getRequestMethod() == 'GET') {
             $app->setStateDetails(array(
                 'details_appointment' => $appointment,
                 'details_errors' => $detailsErrors,
@@ -75,8 +75,8 @@ class Details extends BaseController
                 'hour_mode' => $app->getHourMode()
             ));
         } else {
-            //error_log("\npost:" . print_r($_POST, true), 3, 'my_errors.txt');
-            $values = array_merge(array(), $_POST);
+            //error_log("\npost:" . print_r($http->post(), true), 3, 'my_errors.txt');
+            $values = array_merge(array(), $http->post());
             $bookingData = new \Application\BookingChange();
             $this->validateForm($values, $detailsErrors, $bookingData);
             if ($this->isEmptyValues($detailsErrors)) {
@@ -145,11 +145,11 @@ class Details extends BaseController
             }
         }
     }
-    public function edit(\Core\Registry $registry, $urlParameters)
+    public function edit(\Core\Registry $registry, $urlParameters, \Core\Http $http)
     {
-        $this->act($registry, $urlParameters);
+        $this->act($registry, $urlParameters, $http);
     }
-    public function delete(\Core\Registry $registry, $urlParameters)
+    public function delete(\Core\Registry $registry, $urlParameters, \Core\Http $http)
     {
         $db = $registry->get(REG_DB);
         $app = $registry->get(REG_APP);
@@ -158,7 +158,7 @@ class Details extends BaseController
         $chain = $appMapper->getChain($appointment->getChain(), $db);
         $chain->applyFilter(new \DateTime());
         $deleted_count = 0;
-        if ($_POST['apply_chain_proxy'] == 1) {
+        if ($http->post()['apply_chain_proxy'] == 1) {
             foreach($chain as $member) {
                 $appMapper->deleteById($member->getId(), $db);
                 ++$deleted_count;

@@ -27,10 +27,10 @@ class Router
         return ucfirst(self::toLowerCamelCase($src));
     }
 
-    private function parsePath()
+    private function parsePath(Http $http)
     {
-        if (isset($_GET['route'])) {
-            $route = trim($_GET['route'], "/\\");
+        if (isset($http->get()['route'])) {
+            $route = trim($http->get()['route'], "/\\");
             //error_log("\nroute:" . $route, 3, 'my_errors.txt');
             $routeList = explode('/', $route);
             if (count($routeList) > 0) {
@@ -88,9 +88,9 @@ class Router
     }
 
 
-    public function start(Registry $registry)
+    public function start(Registry $registry, Http $http)
     {
-        $this->parsePath();
+        $this->parsePath($http);
         $this->checkAuth($registry);
         if ($this->needSetPassword($registry)) {
             return;
@@ -108,6 +108,6 @@ class Router
             $this->actionName = DEFAULT_ACTION;
         }
         //error_log("\nmethod" . print_r($this->actionName, true), 3, 'my_errors.txt');
-        call_user_func(array($classInstance, $this->actionName), $registry, $this->urlParameters);
+        call_user_func(array($classInstance, $this->actionName), $registry, $this->urlParameters, $http);
     }
 }

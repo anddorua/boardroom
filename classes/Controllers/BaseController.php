@@ -11,7 +11,7 @@ namespace Controllers;
 
 class BaseController
 {
-    public function act(\Core\Registry $registry, $urlParameters)
+    public function act(\Core\Registry $registry, $urlParameters, \Core\Http $http)
     {
         throw new \Exception ("call to BaseController::act");
     }

@@ -13,7 +13,7 @@ class EmployeeList implements BaseVidget
 {
     public function render(array $appData, $templateName, \Core\Registry $registry)
     {
-        $emp_list = $appData['emp_list'];
+        $emp_list = (new \DBMappers\EmpItem())->getAll($registry->get(REG_DB));
         $item_list = array();
         $site_root = $registry->get(REG_SITE_ROOT);
         foreach($emp_list as $emp) {

@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 
 require_once("include/constants.php");
 require_once("include/autoload.php");
-// state templates [state] => [template file name]
+// state templates: [state] => [template file name]
 $templateMap = array(
     Core\Application::STATE_LOGIN => "LoginTemplate.html",
     Core\Application::STATE_BROWSE => "BrowseTemplate.php",
@@ -17,7 +17,7 @@ $templateMap = array(
     Core\Application::STATE_DETAILS_RETURN => "DetailsReturnTemplate.html",
     Core\Application::STATE_REDIRECT => null,
 );
-// vidget templates [vidget class name (like in data-vidgets attribute)] => [template file name]
+// vidget templates: [vidget class name (like in data-vidgets attribute)] => [template file name]
 $vidgetViews = array(
     'LoginForm' => 'LoginForm.php',
     'Navigation' => 'Navigation.php',
@@ -36,9 +36,12 @@ $vidgetViews = array(
 );
 $registry = new \Core\Registry();
 $registry->set(REG_SITE_ROOT, pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_DIRNAME) . '/');
-$registry->set(REG_HTTP, new \Core\Http());
-$registry->set(REG_SESSION, new \Core\Session());
-$registry->set(REG_APP, new Core\Application($registry->get(REG_SITE_ROOT), $registry->get(REG_SESSION)));
+$http = new \Core\Http();
+$registry->set(REG_HTTP, $http);
+$session = new \Core\Session();
+$registry->set(REG_SESSION, $session);
+$app = new Core\Application($registry->get(REG_SITE_ROOT), $session);
+$registry->set(REG_APP, $app);
 $registry->set(REG_DB, new \Core\Database(
     'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8',
     DB_USER,
@@ -46,14 +49,13 @@ $registry->set(REG_DB, new \Core\Database(
     'appointments',
     '\\Utility\\DatabaseCreateScript'));
 
-(new \Core\Router())->start($registry);
-$app = $registry->get(REG_APP);
+(new \Core\Router())->start($registry, $http);
 if ($app->getState() == \Core\Application::STATE_REDIRECT) {
-    $registry->get(REG_HTTP)->redirect(
+    $http->redirect(
         $app->getRedirectUrl(),
         $registry->get(REG_SITE_ROOT));
 } else {
-    echo (new \Core\View($vidgetViews))->renderState($app->getState(), $app->getAppData(), $templateMap, $registry);
+    $http->setResponseBody((new \Core\View($vidgetViews))->renderState($app->getState(), $app->getAppData(), $templateMap, $registry));
 }
 
 

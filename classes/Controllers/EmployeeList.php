@@ -11,9 +11,8 @@ namespace Controllers;
 
 class EmployeeList extends BaseController
 {
-    public function act(\Core\Registry $registry, $urlParameters)
+    public function act(\Core\Registry $registry, $urlParameters, \Core\Http $http)
     {
-        $emps = (new \DBMappers\EmpItem())->getAll($registry->get(REG_DB));
-        $registry->get(REG_APP)->setStateEmployeeList(array('emp_list' => $emps));
+        $registry->get(REG_APP)->setStateEmployeeList(array());
     }
 }

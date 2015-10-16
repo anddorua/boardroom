@@ -14,6 +14,6 @@ class BaseControllerTest extends PHPUnit_Framework_TestCase
     public function testAct()
     {
         $c = new \Controllers\BaseController();
-        $c->act(new \Core\Registry(), array());
+        $c->act(new \Core\Registry(), array(),);
     }
 }
