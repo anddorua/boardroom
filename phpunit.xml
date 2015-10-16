@@ -16,6 +16,7 @@
         </testsuite>
         <testsuite name="Controllers">
             <file>tests/Controllers/BaseControllerTest.php</file>
+            <file>tests/Controllers/BookControllerTest.php</file>
         </testsuite>
     </testsuites>
 </phpunit>

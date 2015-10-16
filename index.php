@@ -3,6 +3,7 @@ ini_set('display_errors', 'Off');
 ini_set('log_errors', 'On');
 ini_set("error_log", "my_errors.txt");
 error_reporting(E_ALL);
+date_default_timezone_set('Europe/Kiev'); // change if needed
 
 require_once("include/constants.php");
 require_once("include/autoload.php");

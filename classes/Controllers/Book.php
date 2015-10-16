@@ -47,6 +47,7 @@ class Book extends BaseController
         // нельзя назначить на прошлый период
         //error_log("\nstart-date:" . print_r($bookingData['start-date']->getTimestamp(), true), 3, 'my_errors.txt');
         //error_log("\nnow:" . print_r((new \DateTime())->getTimestamp(), true), 3, 'my_errors.txt');
+        //todo: куда-то вынести эту проверку, она относится к бизнес-логике. наверное сделать отдельный объект для задания на формирование аппоинтмента
         if ($bookingData['start-date']->getTimestamp() < (new \DateTime())->getTimestamp()) {
             $bookErrors['common'] = 'you cannot book for passed time';
         }
@@ -58,6 +59,7 @@ class Book extends BaseController
         }
         $bookingData['end-date']->setTime($hours, $bookValues['end-minute']);
         // корректировка - если у даты окончания часы и минуты - нули, то это полночь следующего дня
+        //todo: точно-точно, вынести эту проверку отсюда
         if ($bookingData['end-date']->format('G') == 0 && $bookingData['end-date']->format('i') == 0) {
             $bookingData['end-date']->add(new \DateInterval('P1D'));
         }

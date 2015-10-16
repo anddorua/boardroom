@@ -14,7 +14,6 @@ define('DB_HOST', 'localhost'); // mysql server host
 define('DB_NAME', 'bdr_test'); // database name
 define('DB_USER', 'root'); // database user
 define('DB_PASSWORD', ''); // user password
-date_default_timezone_set('Europe/Kiev'); // change if needed
 
 /**
  *  Do NOT edit following lines
