@@ -20,11 +20,10 @@ class Application
     const STATE_DETAILS = 7;
     const STATE_DETAILS_RETURN = 8;
 
-    const SECTION_REDIRECT = 'redirect_url';
-
     private $state;
     private $siteRoot;
     private $session;
+    private $redirectUrl;
     private $appData = array(); // application data, stores state of the app, used for render
 
     /**
@@ -97,22 +96,21 @@ class Application
         $this->appData = array_merge($this->appData, $stateValues);
     }
 
+    /**
+     * @param $url string do not add site root here, it will be added during http->redirect call
+     */
     public function setStateRedirect($url)
     {
         $this->state = self::STATE_REDIRECT;
-        $this->appData[self::SECTION_REDIRECT] = $url;
+        $this->redirectUrl = $url;
     }
 
     /**
-     * @param $url
-     * @param int $statusCode
+     * @return mixed
      */
-    public function redirect($url, $statusCode = 303)
+    public function getRedirectUrl()
     {
-        $newLocation = $this->siteRoot . $url;
-        //error_log("\nredirect to" . print_r($newLocation, true), 3, 'my_errors.txt');
-        header('Location: ' . $newLocation, true, $statusCode);
-        die();
+        return $this->redirectUrl;
     }
 
     public function isAuthorized()

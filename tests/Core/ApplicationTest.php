@@ -19,8 +19,7 @@ class ApplicationTest extends PHPUnit_Framework_TestCase
             'det_key' => 'det_value',
             'det_ret_key' => 'det_ret_value',
             'emp_key' => 'emp_value',
-            'empl_key' => 'empl_value',
-            \Core\Application::SECTION_REDIRECT => 'http'
+            'empl_key' => 'empl_value'
         );
         $sessionStub = $this->getMockBuilder('\\Core\\Session')->getMock();
         $app = new \Core\Application('', $sessionStub);
@@ -40,6 +39,7 @@ class ApplicationTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(\Core\Application::STATE_EMPLOYEE_LIST, $app->getState());
         $app->setStateRedirect('http');
         $this->assertEquals(\Core\Application::STATE_REDIRECT, $app->getState());
+        $this->assertEquals('http', $app->getRedirectUrl());
         $this->assertArraySubset($stateData, $app->getAppData());
     }
 }

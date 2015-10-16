@@ -39,4 +39,5 @@ define('DETAILS_RETURN_URL', 'details-return');
 define('REG_SESSION', 'session');
 define('REG_DB', 'db');
 define('REG_APP', 'app');
+define('REG_HTTP', 'http');
 define('REG_SITE_ROOT', 'site_root');

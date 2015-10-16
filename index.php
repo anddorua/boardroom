@@ -36,6 +36,7 @@ $vidgetViews = array(
 );
 $registry = new \Core\Registry();
 $registry->set(REG_SITE_ROOT, pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_DIRNAME) . '/');
+$registry->set(REG_HTTP, new \Core\Http());
 $registry->set(REG_SESSION, new \Core\Session());
 $registry->set(REG_APP, new Core\Application($registry->get(REG_SITE_ROOT), $registry->get(REG_SESSION)));
 $registry->set(REG_DB, new \Core\Database(
@@ -48,7 +49,9 @@ $registry->set(REG_DB, new \Core\Database(
 (new \Core\Router())->start($registry);
 $app = $registry->get(REG_APP);
 if ($app->getState() == \Core\Application::STATE_REDIRECT) {
-    $app->redirect($app->getAppData()[\Core\Application::SECTION_REDIRECT]);
+    $registry->get(REG_HTTP)->redirect(
+        $app->getRedirectUrl(),
+        $registry->get(REG_SITE_ROOT));
 } else {
     echo (new \Core\View($vidgetViews))->renderState($app->getState(), $app->getAppData(), $templateMap, $registry);
 }
