@@ -13,6 +13,7 @@ use Application\EmpItem;
 
 class Login extends BaseController
 {
+    use \Utility\DependencyInjection;
     private function setWrongLoginState(\Core\Application $app, $loginValue)
     {
         $app->setStateLogin(array(
@@ -21,14 +22,13 @@ class Login extends BaseController
         ));
     }
 
-    public function act(\Core\Registry $registry, $urlParameters, \Core\Http $http)
+    public function act($urlParameters, \Core\Http $http, \Core\Application $app, \Core\Database $db, \DBMappers\EmpItem $empMapper)
     {
-        $app = $registry->get(REG_APP);
         $app->reopenSession();
         if (isset($http->post()['login'])) {
             $loginValue = $http->post()['login'];
             //error_log("\nPOST:" . print_r($http->post(), true), 3, 'my_errors.txt');
-            $empItem = (new \DBMappers\EmpItem())->getByLogin($loginValue, $registry->get(REG_DB));
+            $empItem = $empMapper->getByLogin($loginValue, $db);
             if (!$empItem) {
                 $this->setWrongLoginState($app, $loginValue);
                 return;

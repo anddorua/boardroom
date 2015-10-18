@@ -13,19 +13,7 @@ use Application\BookingOrder;
 
 class Book extends BaseController
 {
-
-    private function hoursMerToFull($hours, $meridiem)
-    {
-        if ($meridiem == 'am') {
-            return $hours;
-        } else {
-            if ($hours < 12) {
-                return $hours + 12;
-            } else {
-                return 0;
-            }
-        }
-    }
+    use \Utility\DependencyInjection;
 
     private function validateForm($bookValues, &$bookErrors, \Application\BookingOrder &$bookingOrder, $hour_mode)
     {
@@ -81,9 +69,8 @@ class Book extends BaseController
         }
     }
 
-    public function act(\Core\Registry $registry, $urlParameters, \Core\Http $http)
+    public function act($urlParameters, \Core\Http $http, \Core\Application $app, \Core\Database $db, \DBMappers\AppointmentItem $appMapper, \DBMappers\EmpItem $empItemMapper)
     {
-        $app = $registry->get(REG_APP);
         if ($http->getRequestMethod() == 'GET') {
             $app->setStateBook(array());
         } else if ($http->getRequestMethod() == 'POST') {
@@ -96,11 +83,10 @@ class Book extends BaseController
             if ($this->isEmptyValues($bookErrors)) {
                 $appMatcher = new \Application\AppointmentMatcher();
                 $chain = $appMatcher->makeChain($bookingOrder, $app->getEmpId(), $app->getCurrentRoom());
-                $db = $registry->get(REG_DB);
-                $crossings = $appMatcher->getCrossingAppointments($chain, new \DBMappers\AppointmentItem(), $db);
+                $crossings = $appMatcher->getCrossingAppointments($chain, $appMapper, $db);
                 // test for crossing appointments
                 if (count($crossings) > 0) {
-                    $message = \Utility\HtmlHelper::MakeCrossingMessage($crossings,  new \DBMappers\EmpItem(), $db);
+                    $message = \Utility\HtmlHelper::MakeCrossingMessage($crossings,  $empItemMapper, $db);
                     $app->setStateBook(array(
                         'book_values' => $bookValues,
                         'book_errors' =>$bookErrors,
@@ -108,7 +94,6 @@ class Book extends BaseController
                         'book_crossings' => $crossings
                     ));
                 } else {
-                    $appMapper = new \DBMappers\AppointmentItem();
                     $max_chain_id = $appMapper->getMaxChainId($db);
                     if ($max_chain_id === false) {
                         $max_chain_id = 1;

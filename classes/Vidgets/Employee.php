@@ -11,13 +11,14 @@ namespace Vidgets;
 
 class Employee implements BaseVidget
 {
-    public function render(array $appData, $templateName, \Core\Registry $registry)
+    use \Utility\DependencyInjection;
+    public function render(array $appData, $templateName, \Core\Application $app)
     {
         //error_log('appData in vidget:' . print_r(appData, true), 3, 'my_errors.txt');
         return (new \Utility\Template())->parse($templateName, array(
             'emp_edit' => $appData['emp_edit'],
             'emp_err' => $appData['emp_err'],
-            'is_editor_admin' => $registry->get(REG_APP)->isAdmin()
+            'is_editor_admin' => $app->isAdmin()
         ));
     }
 }

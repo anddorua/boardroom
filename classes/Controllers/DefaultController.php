@@ -11,11 +11,11 @@ namespace Controllers;
 
 class DefaultController extends BaseController
 {
-    public function act(\Core\Registry $registry, $urlParameters, \Core\Http $http)
+    use \Utility\DependencyInjection;
+    public function act($urlParameters, \Core\Http $http, \Core\Application $app, \Core\Database $db, \DBMappers\EmpItem $empItemMapper)
     {
-        $app = $registry->get(REG_APP);
         if ($app->isAuthorized()) {
-            $empItem = (new \DBMappers\EmpItem())->getById($app->getEmpId(), $registry->get(REG_DB));
+            $empItem = $empItemMapper->getById($app->getEmpId(), $db);
             if ($empItem->isPasswordEqual(null)) {
                 $app->setStateRedirect(EMPLOYEE_URL . '/edit/' . $empItem->getId());
             } else {

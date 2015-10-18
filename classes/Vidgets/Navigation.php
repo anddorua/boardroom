@@ -11,9 +11,10 @@ namespace Vidgets;
 
 class Navigation implements BaseVidget
 {
-    public function render(array $appData, $templateName, \Core\Registry $registry)
+    use \Utility\DependencyInjection;
+    public function render(array $appData, $templateName, \Core\Application $app, \Core\Database $db, \DBMappers\RoomItem $roomMapper, \Core\Registry $registry)
     {
-        $rooms = (new \DBMappers\RoomItem())->getAll($registry->get(REG_DB));
+        $rooms = $roomMapper->getAll($db);
         $nav_items = array();
         foreach ($rooms as $room) {
             $nav_items[] = array(
@@ -24,7 +25,7 @@ class Navigation implements BaseVidget
         }
         $nav_items[] = array(
             'caption' => 'Settings',
-            'link' => $registry->get(REG_SITE_ROOT) . 'employee/edit/' . $registry->get(REG_APP)->getEmpId($registry),
+            'link' => $registry->get(REG_SITE_ROOT) . 'employee/edit/' . $app->getEmpId(),
             'selected' => false
         );
         $nav_items[] = array(

@@ -11,8 +11,9 @@ namespace Controllers;
 
 class EmployeeList extends BaseController
 {
-    public function act(\Core\Registry $registry, $urlParameters, \Core\Http $http)
+    use \Utility\DependencyInjection;
+    public function act($urlParameters, \Core\Http $http, \Core\Application $app)
     {
-        $registry->get(REG_APP)->setStateEmployeeList(array());
+        $app->setStateEmployeeList(array());
     }
 }

@@ -37,26 +37,34 @@ $vidgetViews = array(
 );
 $registry = new \Core\Registry();
 $registry->set(REG_SITE_ROOT, pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_DIRNAME) . '/');
+\Utility\DependencyInjectionStorage::getInstance()->setPrefix(DI_PREFIX);
+\Utility\DependencyInjectionStorage::getInstance()->addInstance($registry);
 $http = new \Core\Http();
-$registry->set(REG_HTTP, $http);
+\Utility\DependencyInjectionStorage::getInstance()->addInstance($http);
 $session = new \Core\Session();
-$registry->set(REG_SESSION, $session);
+\Utility\DependencyInjectionStorage::getInstance()->addInstance($session);
 $app = new Core\Application($registry->get(REG_SITE_ROOT), $session);
-$registry->set(REG_APP, $app);
-$registry->set(REG_DB, new \Core\Database(
+\Utility\DependencyInjectionStorage::getInstance()->addInstance($app);
+$db = new \Core\Database(
     'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8',
     DB_USER,
     DB_PASSWORD,
     'appointments',
-    '\\Utility\\DatabaseCreateScript'));
+    '\\Utility\\DatabaseCreateScript'
+);
+\Utility\DependencyInjectionStorage::getInstance()->addInstance($db);
+\Utility\DependencyInjectionStorage::getInstance()->addInstance(new \DBMappers\RoomItem());
+\Utility\DependencyInjectionStorage::getInstance()->addInstance(new \DBMappers\AppointmentItem());
+$empMapper = new \DBMappers\EmpItem();
+\Utility\DependencyInjectionStorage::getInstance()->addInstance($empMapper);
 
-(new \Core\Router())->start($registry, $http);
+(new \Core\Router())->start($http, $app, $db, $empMapper);
 if ($app->getState() == \Core\Application::STATE_REDIRECT) {
     $http->redirect(
         $app->getRedirectUrl(),
         $registry->get(REG_SITE_ROOT));
 } else {
-    $http->setResponseBody((new \Core\View($vidgetViews))->renderState($app->getState(), $app->getAppData(), $templateMap, $registry));
+    $http->setResponseBody((new \Core\View($vidgetViews))->renderState($app->getState(), $app->getAppData(), $templateMap, $registry->get(REG_SITE_ROOT)));
 }
 
 

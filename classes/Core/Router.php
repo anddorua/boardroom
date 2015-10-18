@@ -52,17 +52,16 @@ class Router
         }
     }
 
-    private function checkAuth(Registry $registry)
+    private function checkAuth(Application $app, Database $db, \DBMappers\EmpItem $empMapper)
     {
-        $app = $registry->get(REG_APP);
         //error_log("\nauthorized" . print_r($app->isAuthorized(), true), 3, 'my_errors.txt');
         //error_log("\nsession" . print_r($registry->get(REG_SESSION), true), 3, 'my_errors.txt');
-        if (!$app->isAuthorized($registry) && $this->controllerName != LOGIN_CONTROLLER) {
+        if (!$app->isAuthorized() && $this->controllerName != LOGIN_CONTROLLER) {
             $this->controllerName = DEFAULT_CONTROLLER;
             $this->actionName = DEFAULT_ACTION;
         } else {
             if ($this->controllerName != LOGIN_CONTROLLER) {
-                $empItem = (new \DBMappers\EmpItem())->getById($app->getEmpId(), $registry->get(REG_DB));
+                $empItem = $empMapper->getById($app->getEmpId(), $db);
                 if (is_object($empItem)) {
                     $app->setAuthorized($empItem->getId(), $empItem->isAdmin(), $empItem->getFirstDay(), $empItem->getHourMode());
                 } else {
@@ -74,11 +73,10 @@ class Router
         }
     }
 
-    private function needSetPassword(Registry $registry)
+    private function needSetPassword(Application $app, Database $db, \DBMappers\EmpItem $empMapper)
     {
-        $app = $registry->get(REG_APP);
-        if ($app->isAuthorized($registry)) {
-            $empItem = (new \DBMappers\EmpItem())->getById($app->getEmpId(), $registry->get(REG_DB));
+        if ($app->isAuthorized()) {
+            $empItem = $empMapper->getById($app->getEmpId(), $db);
             if ($empItem->isPasswordEqual(null) && $this->controllerName != EMPLOYEE_CONTROLLER  && $this->controllerName != LOGIN_CONTROLLER) {
                 $app->setStateRedirect(EMPLOYEE_URL . '/edit/' . $empItem->getId());
                 return true;
@@ -88,11 +86,11 @@ class Router
     }
 
 
-    public function start(Registry $registry, Http $http)
+    public function start(Http $http, Application $app, Database $db, \DBMappers\EmpItem $empMapper)
     {
         $this->parsePath($http);
-        $this->checkAuth($registry);
-        if ($this->needSetPassword($registry)) {
+        $this->checkAuth($app, $db, $empMapper);
+        if ($this->needSetPassword($app, $db, $empMapper)) {
             return;
         }
         $controllerClassName = CONTROLLER_NAMESPACE . "\\" . $this->controllerName;
@@ -108,6 +106,7 @@ class Router
             $this->actionName = DEFAULT_ACTION;
         }
         //error_log("\nmethod" . print_r($this->actionName, true), 3, 'my_errors.txt');
-        call_user_func(array($classInstance, $this->actionName), $registry, $this->urlParameters, $http);
+        $di_prefix = \Utility\DependencyInjectionStorage::getInstance()->getPrefix();
+        call_user_func(array($classInstance, $di_prefix . $this->actionName), $this->urlParameters, $http);
     }
 }

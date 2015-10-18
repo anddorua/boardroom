@@ -11,6 +11,7 @@ namespace Controllers;
 
 class Browse extends BaseController
 {
+    use \Utility\DependencyInjection;
     private function setBrowseTime(\Core\Application $app, \Core\Http $http){
         $cp = $app->getCurrentPeriod();
         $cp_year = $cp->format('Y');
@@ -24,12 +25,9 @@ class Browse extends BaseController
         $app->setCurrentPeriod((new \DateTime())->setDate($cp_year, $cp_month, 1));
     }
 
-    public function act(\Core\Registry $registry, $urlParameters, \Core\Http $http)
+    public function act($urlParameters, \Core\Http $http, \Core\Application $app, \Core\Database $db, \DBMappers\RoomItem $roomMapper)
     {
-        $app = $registry->get(REG_APP);
-        $db = $registry->get(REG_DB);
         $this->setBrowseTime($app, $http);
-        $roomMapper = new \DBMappers\RoomItem();
         $currentRoomId = $app->getCurrentRoom();
         if (false === $currentRoomId) {
             $roomList = $roomMapper->getAll($db);
@@ -45,12 +43,11 @@ class Browse extends BaseController
         ));
     }
 
-    public function room(\Core\Registry $registry, $urlParameters, \Core\Http $http)
+    public function room($urlParameters, \Core\Http $http, \Core\Application $app, \Core\Database $db, \DBMappers\RoomItem $roomMapper)
     {
-        $app = $registry->get(REG_APP);
         if (isset($urlParameters[0])) {
             $app->setCurrentRoom($urlParameters[0]);
         }
-        $this->act($registry, $urlParameters, $http);
+        $this->act($urlParameters, $http, $app, $db, $roomMapper);
     }
 }

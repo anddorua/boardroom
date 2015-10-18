@@ -11,9 +11,9 @@ namespace Vidgets;
 
 class EmpListMessage implements BaseVidget
 {
-    public function render(array $appData, $templateName, \Core\Registry $registry)
+    use \Utility\DependencyInjection;
+    public function render(array $appData, $templateName, \Core\Application $app)
     {
-        $app = $registry->get(REG_APP);
         $message = $app->getMessage();
         $app->dropMessage();
         return (new \Utility\Template())->parse($templateName, array('message' => $message));

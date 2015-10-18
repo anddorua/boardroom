@@ -11,5 +11,4 @@ namespace Vidgets;
 
 interface BaseVidget
 {
-    public function render(array $appData, $templateName, \Core\Registry $registry);
 }

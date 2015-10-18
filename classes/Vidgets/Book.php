@@ -11,11 +11,9 @@ namespace Vidgets;
 
 class Book implements BaseVidget
 {
-    public function render(array $appData, $templateName, \Core\Registry $registry)
+    use \Utility\DependencyInjection;
+    public function render(array $appData, $templateName, \Core\Application $app, \Core\Database $db, \DBMappers\RoomItem $roomMapper, \DBMappers\EmpItem $empMapper)
     {
-        $app = $registry->get(REG_APP);
-        $db = $registry->get(REG_DB);
-        $roomMapper = new \DBMappers\RoomItem();
         $current_room = $app->getCurrentRoom();
         if ($current_room === false) {
             $rooms = $roomMapper->getAll($db);
@@ -23,10 +21,9 @@ class Book implements BaseVidget
             $current_room = $app->getCurrentRoom();
         }
         $roomItem = $roomMapper->getById($current_room, $db);
-        $emps = (new \DBMappers\EmpItem())->getAll($db);
+        $emps = $empMapper->getAll($db);
 
         if (isset($appData['book_crossings'])) {
-            $empMapper = new \DBMappers\EmpItem();
             $message = 'Can\'t add appointment, it crosses existing appointments: ';
             foreach($appData['book_crossings'] as $cross) {
                 $empItem = $empMapper->getById($cross->getEmpId(), $db);

@@ -11,7 +11,8 @@ namespace Vidgets;
 
 class Informer implements BaseVidget
 {
-    public function render(array $appData, $templateName, \Core\Registry $registry)
+    use \Utility\DependencyInjection;
+    public function render(array $appData, $templateName)
     {
         return (new \Utility\Template())->parse($templateName, array(
             'browse_room_name' => $appData['browse_room_item']->getRoomName()

@@ -11,7 +11,8 @@ namespace Vidgets;
 
 class LoginForm implements BaseVidget
 {
-    public function render(array $appData, $templateName, \Core\Registry $registry)
+    use \Utility\DependencyInjection;
+    public function render(array $appData, $templateName)
     {
         $login_error_message = isset($appData['login_error_message']) ? $appData['login_error_message'] : '';
         return (new \Utility\Template())->parse($templateName, array(

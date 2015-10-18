@@ -99,7 +99,7 @@ class AppointmentItem extends ArrayCapable
     }
 
     /**
-     * @return null
+     * @return \DateTime
      */
     public function getSubmitted()
     {

@@ -11,11 +11,10 @@ namespace Vidgets;
 
 class Details implements BaseVidget
 {
-    public function render(array $appData, $templateName, \Core\Registry $registry)
+    use \Utility\DependencyInjection;
+    public function render(array $appData, $templateName, \Core\Registry $registry, \Core\Database $db, \DBMappers\EmpItem $empMapper)
     {
-        $app = $registry->get(REG_APP);
-        $db = $registry->get(REG_DB);
-        $emps = (new \DBMappers\EmpItem())->getAll($db);
+        $emps = $empMapper->getAll($db);
 
         return (new \Utility\Template())->parse($templateName, array(
             'details_errors' => $appData['details_errors'],

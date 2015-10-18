@@ -11,9 +11,10 @@ namespace Controllers;
 
 class Employee extends BaseController
 {
-    public function act(\Core\Registry $registry, $urlParameters, \Core\Http $http)
+    use \Utility\DependencyInjection;
+    public function act($urlParameters, \Core\Http $http, \Core\Application $app, \Core\Database $db, \DBMappers\EmpItem $empMapper)
     {
-        $this->edit($registry, $urlParameters, $http);
+        $this->edit($urlParameters, $http, $app, $db, $empMapper);
     }
 
     private function validateLogin($value)
@@ -36,7 +37,7 @@ class Employee extends BaseController
         return $empItem->isPasswordEqual($value) ? '' : 'invalid current password';
     }
 
-    private function addNewEmployee(\Core\Registry $registry, \Core\Http $http)
+    private function addNewEmployee(\Core\Http $http, \Core\Application $app, \Core\Database $db, \DBMappers\EmpItem $empMapper)
     {
         $empItem = new \Application\EmpItem(array(
             'login' => $http->post()['login'],
@@ -51,10 +52,8 @@ class Employee extends BaseController
         $emp_err['name'] = $this->validateName($empItem->getName());
         $emp_err['email'] = $this->validateEmail($empItem->getEmail());
         $emp_err['password'] = '';
-        $app = $registry->get(REG_APP);
         if ($this->isEmptyValues($emp_err)) {
-            $empMapper = new \DBMappers\EmpItem();
-            $empMapper->save($empItem, $registry->get(REG_DB));
+            $empMapper->save($empItem, $db);
             $app->setMessage('Employee ' . $empItem->getName() . ' added successfully.');
             $app->setStateRedirect(EMPLOYEE_LIST_URL);
             //error_log("\nredirect to:" . print_r(BROWSE_URL, true), 3, 'my_errors.txt');
@@ -71,22 +70,20 @@ class Employee extends BaseController
     }
 
 
-    public function add(\Core\Registry $registry, $urlParameters, \Core\Http $http)
+    public function add($urlParameters, \Core\Http $http, \Core\Application $app, \Core\Database $db, \DBMappers\EmpItem $empMapper)
     {
         if ($http->getRequestMethod() == 'GET') {
             $empItem = new \Application\EmpItem(array());
-            $this->showEmployee($registry, $empItem, false, true);
+            $this->showEmployee($empItem, false, true, $app);
         } else if ($http->getRequestMethod() == 'POST') {
-            $this->addNewEmployee($registry, $http);
+            $this->addNewEmployee($http, $app, $db, $empMapper);
         }
     }
 
-    private function saveExistedEmployee(\Core\Registry $registry, $urlParameters, \Core\Http $http)
+    private function saveExistedEmployee($urlParameters, \Core\Http $http, \Core\Application $app, \Core\Database $db, \DBMappers\EmpItem $empMapper)
     {
-        $app = $registry->get(REG_APP);
-        $isOwnAccount = isset($urlParameters[0]) && $urlParameters[0] == $app->getEmpId($registry);
-        $empMapper = new \DBMappers\EmpItem();
-        $empItem = $empMapper->getById($urlParameters[0], $registry->get(REG_DB));
+        $isOwnAccount = isset($urlParameters[0]) && $urlParameters[0] == $app->getEmpId();
+        $empItem = $empMapper->getById($urlParameters[0], $db);
         $empItem->fromArray(array(
             'login' => $http->post()['login'],
             'email' => $http->post()['email'],
@@ -95,7 +92,7 @@ class Employee extends BaseController
             'name' => $http->post()['name'],
         ));
         // check for is_admin field
-        if ($app->isAdmin($registry)) {
+        if ($app->isAdmin()) {
             $empItem->fromArray(array(
                 'is_admin' => $http->post()['is_admin_proxy']
             ));
@@ -128,7 +125,7 @@ class Employee extends BaseController
         }
         // success or reenter form
         if ($this->isEmptyValues($emp_err)) {
-            $empMapper->save($empItem, $registry->get(REG_DB));
+            $empMapper->save($empItem, $db);
             $app->setMessage('Employee ' . $empItem->getName() . ' modified successfully.');
             if ($isOwnAccount)  {
                 $app->setStateRedirect(BROWSE_URL);
@@ -148,9 +145,9 @@ class Employee extends BaseController
         }
     }
 
-    private function showEmployee(\Core\Registry $registry, \Application\EmpItem $empItem, $isOwnAccount, $isAddNew)
+    private function showEmployee(\Application\EmpItem $empItem, $isOwnAccount, $isAddNew, \Core\Application $app)
     {
-        $registry->get(REG_APP)->setStateEmployee(array(
+        $app->setStateEmployee(array(
             'emp_edit' => array(
                 'item' => $empItem,
                 'edit_own' => $isOwnAccount,
@@ -165,38 +162,34 @@ class Employee extends BaseController
         ));
     }
 
-    public function edit(\Core\Registry $registry, $urlParameters, \Core\Http $http)
+    public function edit($urlParameters, \Core\Http $http, \Core\Application $app, \Core\Database $db, \DBMappers\EmpItem $empMapper)
     {
         // может редактировать:
         // 1) свой аккаунт, если $urlParameters[0] == app->getEmpId
         // 2) чужой аккаунт, если $urlParameters[0] != app->getEmpId && app->isAdmin()
-        $app = $registry->get(REG_APP);
         if (!isset($urlParameters[0])) {
             $app->setStateRedirect(BROWSE_URL);
         } else {
             if ($http->getRequestMethod() == 'POST') {
-                $this->saveExistedEmployee($registry, $urlParameters, $http);
+                $this->saveExistedEmployee($urlParameters, $http, $app, $db, $empMapper);
             } else if ($http->getRequestMethod() == 'GET') {
                 $this->showEmployee(
-                    $registry,
-                    (new \DBMappers\EmpItem())->getById($urlParameters[0], $registry->get(REG_DB)),
+                    $empMapper->getById($urlParameters[0], $db),
                     isset($urlParameters[0]) && $urlParameters[0] == $app->getEmpId(),
-                    false);
+                    false,
+                    $app);
             }
         }
     }
-    public function remove(\Core\Registry $registry, $urlParameters, \Core\Http $http)
+    public function remove($urlParameters, \Core\Http $http, \Core\Application $app, \Core\Database $db, \DBMappers\EmpItem $empMapper)
     {
-        $app = $registry->get(REG_APP);
         if (!$app->isAdmin() || $http->getRequestMethod() != 'POST') {
             $app->setMessage('You cannot manage employees.');
             $app->setStateRedirect(BROWSE_URL);
         } else {
             if (isset($urlParameters[0])) {
-                $mapper = new \DBMappers\EmpItem();
-                $db = $registry->get(REG_DB);
-                $empItem = $mapper->getById($urlParameters[0], $db);
-                $mapper->remove($empItem->getId(), $registry->get(REG_DB));
+                $empItem = $empMapper->getById($urlParameters[0], $db);
+                $empMapper->remove($empItem->getId(), $db);
                 $app->setMessage('Employee ' . $empItem->getName() . ' removed successfully.');
                 $app->setStateRedirect(EMPLOYEE_LIST_URL);
             } else {

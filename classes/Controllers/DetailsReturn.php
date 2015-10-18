@@ -13,8 +13,9 @@ use Application\EmpItem;
 
 class DetailsReturn extends BaseController
 {
-    public function act(\Core\Registry $registry, $urlParameters, \Core\Http $http)
+    use \Utility\DependencyInjection;
+    public function act($urlParameters, \Core\Http $http, \Core\Application $app)
     {
-        $registry->get(REG_APP)->setStateDetailsReturn(array());
+        $app->setStateDetailsReturn(array());
     }
 }

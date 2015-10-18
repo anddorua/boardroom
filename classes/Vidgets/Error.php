@@ -11,7 +11,8 @@ namespace Vidgets;
 
 class Error implements BaseVidget
 {
-    public function render(array $appData, $templateName, \Core\Registry $registry)
+    use \Utility\DependencyInjection;
+    public function render(array $appData, $templateName)
     {
         return (new \Utility\Template())->parse($templateName, array(
             'error_message' => isset($appData['error_message']) ? $appData['error_message'] : null

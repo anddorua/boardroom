@@ -9,10 +9,27 @@
 namespace Utility;
 
 /**
- * Class DependencyInjection
- * usage:
+ * Class DependencyInjection.
+ * Injects in public function call trailing type hinted parameters.
+ * Usage:
+ * class definition:
+ * class Foo {
+ *     use DependencyInjection;
+ *     public function foo($a, OtherClass $b){
+ *         // do some things
+ *     }
+ * }
  *
- * i guess i will shut my leg with it...
+ * here we calling it:
+ *
+ * DependencyInjectionStorage::getInstance()->addInstance(new OtherClass());
+ * $foo = new Foo();
+ * $foo->DI_foo('only first parameter');
+ * ... and in fact foo('only first parameter', <OtherClass instance>) will be called.
+ *
+ * restrictions:
+ * 1) calls only public methods,
+ * 2) injects only type hinted parameters (must read 'objects')
  * @package Utility
  */
 trait DependencyInjection

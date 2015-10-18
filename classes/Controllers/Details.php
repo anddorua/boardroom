@@ -9,10 +9,9 @@
 namespace Controllers;
 
 
-use Core\Application;
-
 class Details extends BaseController
 {
+    use \Utility\DependencyInjection;
     private function validateForm($bookValues, &$bookErrors, \Application\BookingChange &$bookingData)
     {
         if (\Utility\Validator::IsFieldNotEmpty($bookValues, 'start')) {
@@ -52,11 +51,8 @@ class Details extends BaseController
         return $values;
     }
 
-    public function act(\Core\Registry $registry, $urlParameters, \Core\Http $http)
+    public function act($urlParameters, \Core\Http $http, \Core\Application $app, \Core\Database $db, \DBMappers\AppointmentItem $appMapper, \DBMappers\EmpItem $empItemMapper)
     {
-        $db = $registry->get(REG_DB);
-        $app = $registry->get(REG_APP);
-        $appMapper = new \DBMappers\AppointmentItem();
         $appointment = $appMapper->getById($urlParameters[0], $db);
         $chain = $appMapper->getChain($appointment->getChain(), $db);
         $full_chain_count = $chain->count();
@@ -89,7 +85,7 @@ class Details extends BaseController
                 $appMatcher = new \Application\AppointmentMatcher();
                 $crossings = $appMatcher->getCrossingAppointments($chain, $appMapper, $db);
                 if (count($crossings) > 0) {
-                    $message = \Utility\HtmlHelper::MakeCrossingMessage($crossings,  new \DBMappers\EmpItem(), $db);
+                    $message = \Utility\HtmlHelper::MakeCrossingMessage($crossings,  $empItemMapper, $db);
                     $app->setStateDetails(array(
                         'details_appointment' => $appointment,
                         'details_errors' => $detailsErrors,
@@ -145,15 +141,12 @@ class Details extends BaseController
             }
         }
     }
-    public function edit(\Core\Registry $registry, $urlParameters, \Core\Http $http)
+    public function edit($urlParameters, \Core\Http $http, \Core\Application $app, \Core\Database $db, \DBMappers\AppointmentItem $appMapper, \DBMappers\EmpItem $empItemMapper)
     {
-        $this->act($registry, $urlParameters, $http);
+        $this->act($urlParameters, $http, $app, $db, $appMapper, $empItemMapper);
     }
-    public function delete(\Core\Registry $registry, $urlParameters, \Core\Http $http)
+    public function delete($urlParameters, \Core\Http $http, \Core\Application $app, \Core\Database $db, \DBMappers\AppointmentItem $appMapper)
     {
-        $db = $registry->get(REG_DB);
-        $app = $registry->get(REG_APP);
-        $appMapper = new \DBMappers\AppointmentItem();
         $appointment = $appMapper->getById($urlParameters[0], $db);
         $chain = $appMapper->getChain($appointment->getChain(), $db);
         $chain->applyFilter(new \DateTime());

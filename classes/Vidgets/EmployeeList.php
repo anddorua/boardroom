@@ -11,9 +11,10 @@ namespace Vidgets;
 
 class EmployeeList implements BaseVidget
 {
-    public function render(array $appData, $templateName, \Core\Registry $registry)
+    use \Utility\DependencyInjection;
+    public function render(array $appData, $templateName, \Core\Database $db, \Core\Registry $registry, \DBMappers\EmpItem $empMapper)
     {
-        $emp_list = (new \DBMappers\EmpItem())->getAll($registry->get(REG_DB));
+        $emp_list = $empMapper->getAll($db);
         $item_list = array();
         $site_root = $registry->get(REG_SITE_ROOT);
         foreach($emp_list as $emp) {

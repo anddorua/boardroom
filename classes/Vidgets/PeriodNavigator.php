@@ -11,9 +11,9 @@ namespace Vidgets;
 
 class PeriodNavigator implements BaseVidget
 {
-    public function render(array $appData, $templateName, \Core\Registry $registry)
+    use \Utility\DependencyInjection;
+    public function render(array $appData, $templateName, \Core\Application $app, \Core\Registry $registry)
     {
-        $app = $registry->get(REG_APP);
         $cur_per = $app->getCurrentPeriod();
         $period_now = $cur_per->format('F Y');
         $first_day = (new \DateTime())->setDate($cur_per->format('Y'), $cur_per->format('n'), 1);
