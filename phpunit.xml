@@ -1,5 +1,8 @@
 <phpunit bootstrap="tests/bootstrap.php">
     <testsuites>
+        <testsuite name="Utility">
+            <file>tests/Utility/DependencyInjectionTest.php</file>
+        </testsuite>
         <testsuite name="Application">
             <file>tests/Application/EmpItemTest.php</file>
             <file>tests/Application/RoomItemTest.php</file>
