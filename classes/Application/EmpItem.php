@@ -9,7 +9,7 @@
 namespace Application;
 
 
-class EmpItem extends ArrayCapable
+class EmpItem extends \Core\ArrayCapable
 {
     const MODE_DAY_24 = 24;
     const MODE_DAY_12 = 12;
@@ -36,6 +36,11 @@ class EmpItem extends ArrayCapable
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getIdFieldName()
+    {
+        return 'id';
     }
 
     public function isAdmin()

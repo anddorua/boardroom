@@ -29,7 +29,7 @@ class AppointmentMatcher
                 break;
         }
         $event_date = clone $event_dates[0];
-        for ($i = 1; $i <= $duration_to_count; $i++) {
+        for ($i = 1; $i <= $duration_to_count && $recurring_period != BookingOrder::NOT_RECURRING; $i++) {
             $event_date->add($step);
             $event_dates[] = clone $event_date;
         }

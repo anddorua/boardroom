@@ -51,9 +51,11 @@ class EmpItem extends ObjectMapper
         $fields_to_save = $emp->toArray();
         unset($fields_to_save['id']);
         if (is_null($emp->getId()) || $emp->getId() == '') {
-            return $this->makeInsertQuery('employees', $fields_to_save, $db);
+            $this->makeInsertQuery('employees', $fields_to_save, $db);
+            $lid = $db->getLastInsertId();
+            $emp->fromArray(array($emp->getIdFieldName() => $lid));
         } else {
-            return $this->makeUpdateQuery('employees', $fields_to_save, array('id' => $emp->getId()), $db);
+            $this->makeUpdateQuery('employees', $fields_to_save, array('id' => $emp->getId()), $db);
         }
     }
 

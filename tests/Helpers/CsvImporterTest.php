@@ -15,6 +15,7 @@ class CsvImporterTest extends \PHPUnit_Framework_TestCase
         $imp = new \Helpers\CsvImporter('tests/DBMappers/AppointmentItemMapperData.csv', true,',');
         $data = $imp->get();
         $this->assertTrue(is_array($data));
+        print_r($data);
     }
 
 }

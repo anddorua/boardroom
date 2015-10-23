@@ -9,7 +9,7 @@
 namespace Application;
 
 
-class AppointmentItem extends ArrayCapable
+class AppointmentItem extends \Core\ArrayCapable
 {
     protected $id = null;
     protected $emp_id;
@@ -33,6 +33,12 @@ class AppointmentItem extends ArrayCapable
     {
         return $this->id;
     }
+
+    public function getIdFieldName()
+    {
+        return 'id';
+    }
+
 
     /**
      * @return mixed

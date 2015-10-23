@@ -9,7 +9,7 @@
 namespace Application;
 
 
-class RoomItem extends ArrayCapable
+class RoomItem extends \Core\ArrayCapable
 {
     protected $id = null;
     protected $room_name;
@@ -25,6 +25,11 @@ class RoomItem extends ArrayCapable
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getIdFieldName()
+    {
+        return 'id';
     }
 
     /**

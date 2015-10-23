@@ -37,11 +37,13 @@ class RoomItem extends ObjectMapper
     public function save(\Application\RoomItem $room, \Core\Database $db)
     {
         $fields_to_save = $room->toArray();
-        unset($fields_to_save['id']);
+        unset($fields_to_save[$room->getIdFieldName()]);
         if (is_null($room->getId()) || $room->getId() == '') {
-            return $this->makeInsertQuery('rooms', $fields_to_save, $db);
+            $this->makeInsertQuery('rooms', $fields_to_save, $db);
+            $lid = $db->getLastInsertId();
+            $room->fromArray(array($room->getIdFieldName() => $lid));
         } else {
-            return $this->makeUpdateQuery('rooms', $fields_to_save, array('id' => $room->getId()), $db);
+            $this->makeUpdateQuery('rooms', $fields_to_save, array('id' => $room->getId()), $db);
         }
     }
 

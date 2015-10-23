@@ -1,0 +1,2 @@
+employee,start-year,start-month,start-day,start-hour-12,start-meridiem,start-hour-24,start-minute,end-hour-12,end-meridiem,end-hour-24,end-minute,notes,recurring,recurring-period,duration
+1,2017,1,2,,,11,05,,,12,10,ddd,1,1,

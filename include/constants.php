@@ -10,8 +10,8 @@
  *  This section should be edited before site run
  */
 define('DB_HOST', 'localhost'); // mysql server host
-//define('DB_NAME', 'boardroom');
-define('DB_NAME', 'bdr_test'); // database name
+define('DB_NAME', 'boardroom');
+//define('DB_NAME', 'bdr_test'); // database name
 define('DB_USER', 'root'); // database user
 define('DB_PASSWORD', ''); // user password
 

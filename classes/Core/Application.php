@@ -146,16 +146,6 @@ class Application
         return $this->session->get('hour_mode');
     }
 
-    public function setRoomSelected($room_id)
-    {
-        $this->session->set('room_id', $room_id);
-    }
-
-    public function getRoomSelected()
-    {
-        return $this->session->get('room_id');
-    }
-
     public function setMessage($msg)
     {
         $this->session->set('message', $msg);

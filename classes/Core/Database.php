@@ -139,4 +139,9 @@ class Database
         $this->commit();
         $this->dbh = null;
     }
+    public function getLastInsertId()
+    {
+        return $this->dbh->lastInsertId();
+    }
+
 }

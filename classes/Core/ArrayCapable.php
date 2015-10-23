@@ -6,10 +6,10 @@
  * Time: 22:29
  */
 
-namespace Application;
+namespace Core;
 
 
-class ArrayCapable
+abstract class ArrayCapable
 {
     public function toArray()
     {
@@ -25,4 +25,7 @@ class ArrayCapable
             }
         }
     }
+
+    abstract public function getIdFieldName();
+
 }

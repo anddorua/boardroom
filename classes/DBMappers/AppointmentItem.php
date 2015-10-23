@@ -30,9 +30,11 @@ class AppointmentItem extends ObjectMapper
         unset($fields_to_save['id']);
         unset($fields_to_save['submitted']);
         if (is_null($app->getId()) || $app->getId() == '') {
-            return $this->makeInsertQuery('appointments', $fields_to_save, $db);
+            $this->makeInsertQuery('appointments', $fields_to_save, $db);
+            $lid = $db->getLastInsertId();
+            $app->fromArray(array($app->getIdFieldName() => $lid));
         } else {
-            return $this->makeUpdateQuery('appointments', $fields_to_save, array('id' => $app->getId()), $db);
+            $this->makeUpdateQuery('appointments', $fields_to_save, array('id' => $app->getId()), $db);
         }
     }
 

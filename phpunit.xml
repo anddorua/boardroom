@@ -8,6 +8,7 @@
             <file>tests/Application/RoomItemTest.php</file>
             <file>tests/Application/AppointmentItemTest.php</file>
             <file>tests/Application/BookingChangeTest.php</file>
+            <file>tests/Application/BookingOrderTest.php</file>
             <file>tests/Application/AppointmentChainTest.php</file>
         </testsuite>
         <testsuite name="Core">

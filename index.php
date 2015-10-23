@@ -53,9 +53,9 @@ $db = new \Core\Database(
     '\\Utility\\DatabaseCreateScript'
 );
 \Utility\DependencyInjectionStorage::getInstance()->addInstance($db);
-\Utility\DependencyInjectionStorage::getInstance()->addInstance(new \DBMappers\RoomItem());
-\Utility\DependencyInjectionStorage::getInstance()->addInstance(new \DBMappers\AppointmentItem());
-$empMapper = new \DBMappers\EmpItem();
+\Utility\DependencyInjectionStorage::getInstance()->addInstance(new \DBMappers\RoomItem('rooms'));
+\Utility\DependencyInjectionStorage::getInstance()->addInstance(new \DBMappers\AppointmentItem('appointments'));
+$empMapper = new \DBMappers\EmpItem('employees');
 \Utility\DependencyInjectionStorage::getInstance()->addInstance($empMapper);
 
 (new \Core\Router())->start($http, $app, $db, $empMapper);

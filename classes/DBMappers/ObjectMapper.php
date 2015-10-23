@@ -8,9 +8,21 @@
 
 namespace DBMappers;
 
-
+/**
+ * Class ObjectMapper
+ * Класс с базовой функциональностью для маппера объектов в базу данных.
+ * Не хватает абстракции на выборку.
+ * Вообще, в сочетании с рефлекшном можно маленький ORM замутить, но в другой раз.
+ * @package DBMappers
+ */
 class ObjectMapper
 {
+    protected $tableName;
+    public function __construct ($tableName)
+    {
+        $this->tableName = $tableName;
+    }
+
     protected function makeInsertQuery($table_name, $fields_to_save, \Core\Database $db)
     {
         $field_list = array_keys($fields_to_save);
@@ -50,4 +62,5 @@ class ObjectMapper
         $value_var_list = array_map(function($var_name){return ':' . $var_name;}, $field_list);
         return array_combine($value_var_list, array_values($fields_to_save));
     }
+
 }
