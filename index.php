@@ -36,7 +36,7 @@ $vidgetViews = array(
     'Details' => 'Details.php',
 );
 $registry = new \Core\Registry();
-$registry->set(REG_SITE_ROOT, pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_DIRNAME) . '/');
+$registry->set(REG_SITE_ROOT, 'http://' . $_SERVER['HTTP_HOST'] . pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_DIRNAME));
 \Utility\DependencyInjectionStorage::getInstance()->setPrefix(DI_PREFIX);
 \Utility\DependencyInjectionStorage::getInstance()->addInstance($registry);
 $http = new \Core\Http();

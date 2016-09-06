@@ -30,7 +30,7 @@ class Http
      */
     public function redirect($url, $siteRoot = '', $statusCode = 303)
     {
-        $newLocation = $siteRoot . $url;
+        $newLocation = rtrim($siteRoot, '/') . '/' . ltrim($url, '/');
         //error_log("\nredirect to" . print_r($newLocation, true), 3, 'my_errors.txt');
         header('Location: ' . $newLocation, true, $statusCode);
         die();

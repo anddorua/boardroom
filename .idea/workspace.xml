@@ -2,119 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc60e67c-406f-4a9d-aaa6-b352a3adb8f8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Application/AppointmentChain.php" afterPath="$PROJECT_DIR$/classes/Application/AppointmentChain.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Application/AppointmentItem.php" afterPath="$PROJECT_DIR$/classes/Application/AppointmentItem.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Application/AppointmentMatcher.php" afterPath="$PROJECT_DIR$/classes/Application/AppointmentMatcher.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Application/BookingChange.php" afterPath="$PROJECT_DIR$/classes/Application/BookingChange.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Application/BookingOrder.php" afterPath="$PROJECT_DIR$/classes/Application/BookingOrder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Application/EmpItem.php" afterPath="$PROJECT_DIR$/classes/Application/EmpItem.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Application/RoomItem.php" afterPath="$PROJECT_DIR$/classes/Application/RoomItem.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Controllers/BaseController.php" afterPath="$PROJECT_DIR$/classes/Controllers/BaseController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Controllers/Book.php" afterPath="$PROJECT_DIR$/classes/Controllers/Book.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Controllers/Browse.php" afterPath="$PROJECT_DIR$/classes/Controllers/Browse.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Controllers/DefaultController.php" afterPath="$PROJECT_DIR$/classes/Controllers/DefaultController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Controllers/Details.php" afterPath="$PROJECT_DIR$/classes/Controllers/Details.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Controllers/DetailsReturn.php" afterPath="$PROJECT_DIR$/classes/Controllers/DetailsReturn.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Controllers/Employee.php" afterPath="$PROJECT_DIR$/classes/Controllers/Employee.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Controllers/EmployeeList.php" afterPath="$PROJECT_DIR$/classes/Controllers/EmployeeList.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Controllers/Login.php" afterPath="$PROJECT_DIR$/classes/Controllers/Login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Core/Application.php" afterPath="$PROJECT_DIR$/classes/Core/Application.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Core/ArrayCapable.php" afterPath="$PROJECT_DIR$/classes/Core/ArrayCapable.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Core/BaseApplication.php" afterPath="$PROJECT_DIR$/classes/Core/BaseApplication.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Core/Database.php" afterPath="$PROJECT_DIR$/classes/Core/Database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Core/ENoDatabaseSet.php" afterPath="$PROJECT_DIR$/classes/Core/ENoDatabaseSet.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Core/Http.php" afterPath="$PROJECT_DIR$/classes/Core/Http.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Core/Registry.php" afterPath="$PROJECT_DIR$/classes/Core/Registry.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Core/Router.php" afterPath="$PROJECT_DIR$/classes/Core/Router.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Core/Session.php" afterPath="$PROJECT_DIR$/classes/Core/Session.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Core/View.php" afterPath="$PROJECT_DIR$/classes/Core/View.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/DBMappers/AppointmentItem.php" afterPath="$PROJECT_DIR$/classes/DBMappers/AppointmentItem.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/DBMappers/EmpItem.php" afterPath="$PROJECT_DIR$/classes/DBMappers/EmpItem.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/DBMappers/ObjectMapper.php" afterPath="$PROJECT_DIR$/classes/DBMappers/ObjectMapper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/DBMappers/RoomItem.php" afterPath="$PROJECT_DIR$/classes/DBMappers/RoomItem.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Utility/DatabaseCreateScript.php" afterPath="$PROJECT_DIR$/classes/Utility/DatabaseCreateScript.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Utility/DateHelper.php" afterPath="$PROJECT_DIR$/classes/Utility/DateHelper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Utility/DependencyInjection.php" afterPath="$PROJECT_DIR$/classes/Utility/DependencyInjection.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Utility/DependencyInjectionStorage.php" afterPath="$PROJECT_DIR$/classes/Utility/DependencyInjectionStorage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Utility/EDIException.php" afterPath="$PROJECT_DIR$/classes/Utility/EDIException.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Utility/EDINoInstanceInjected.php" afterPath="$PROJECT_DIR$/classes/Utility/EDINoInstanceInjected.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Utility/EDINoOriginalMethod.php" afterPath="$PROJECT_DIR$/classes/Utility/EDINoOriginalMethod.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Utility/EDINoTypeHint.php" afterPath="$PROJECT_DIR$/classes/Utility/EDINoTypeHint.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Utility/HtmlHelper.php" afterPath="$PROJECT_DIR$/classes/Utility/HtmlHelper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Utility/Template.php" afterPath="$PROJECT_DIR$/classes/Utility/Template.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Utility/Validator.php" afterPath="$PROJECT_DIR$/classes/Utility/Validator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/BaseVidget.php" afterPath="$PROJECT_DIR$/classes/Vidgets/BaseVidget.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/Book.php" afterPath="$PROJECT_DIR$/classes/Vidgets/Book.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/Calendar.php" afterPath="$PROJECT_DIR$/classes/Vidgets/Calendar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/Details.php" afterPath="$PROJECT_DIR$/classes/Vidgets/Details.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/DetailsCaption.php" afterPath="$PROJECT_DIR$/classes/Vidgets/DetailsCaption.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/EmpListMessage.php" afterPath="$PROJECT_DIR$/classes/Vidgets/EmpListMessage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/Employee.php" afterPath="$PROJECT_DIR$/classes/Vidgets/Employee.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/EmployeeList.php" afterPath="$PROJECT_DIR$/classes/Vidgets/EmployeeList.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/Error.php" afterPath="$PROJECT_DIR$/classes/Vidgets/Error.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/Informer.php" afterPath="$PROJECT_DIR$/classes/Vidgets/Informer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/LoginForm.php" afterPath="$PROJECT_DIR$/classes/Vidgets/LoginForm.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/Messages.php" afterPath="$PROJECT_DIR$/classes/Vidgets/Messages.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/Navigation.php" afterPath="$PROJECT_DIR$/classes/Vidgets/Navigation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/PeriodNavigator.php" afterPath="$PROJECT_DIR$/classes/Vidgets/PeriodNavigator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/SideMenu.php" afterPath="$PROJECT_DIR$/classes/Vidgets/SideMenu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/boardroom.css" afterPath="$PROJECT_DIR$/css/boardroom.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/autoload.php" afterPath="$PROJECT_DIR$/include/autoload.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/boardroom.sql" afterPath="$PROJECT_DIR$/include/boardroom.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/constants.php" afterPath="$PROJECT_DIR$/include/constants.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phpunit.xml" afterPath="$PROJECT_DIR$/phpunit.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme.txt" afterPath="$PROJECT_DIR$/readme.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/Book.php" afterPath="$PROJECT_DIR$/template/Book.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/BookTemplate.php" afterPath="$PROJECT_DIR$/template/BookTemplate.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/BrowseTemplate.php" afterPath="$PROJECT_DIR$/template/BrowseTemplate.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/Calendar.php" afterPath="$PROJECT_DIR$/template/Calendar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/Details.php" afterPath="$PROJECT_DIR$/template/Details.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/DetailsCaption.php" afterPath="$PROJECT_DIR$/template/DetailsCaption.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/DetailsReturnTemplate.html" afterPath="$PROJECT_DIR$/template/DetailsReturnTemplate.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/DetailsTemplate.php" afterPath="$PROJECT_DIR$/template/DetailsTemplate.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/EmpListMessage.php" afterPath="$PROJECT_DIR$/template/EmpListMessage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/Employee.php" afterPath="$PROJECT_DIR$/template/Employee.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/EmployeeList.php" afterPath="$PROJECT_DIR$/template/EmployeeList.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/EmployeeListTemplate.php" afterPath="$PROJECT_DIR$/template/EmployeeListTemplate.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/EmployeeTemplate.php" afterPath="$PROJECT_DIR$/template/EmployeeTemplate.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/Error.php" afterPath="$PROJECT_DIR$/template/Error.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/Informer.php" afterPath="$PROJECT_DIR$/template/Informer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/LoginForm.php" afterPath="$PROJECT_DIR$/template/LoginForm.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/LoginTemplate.html" afterPath="$PROJECT_DIR$/template/LoginTemplate.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/Messages.php" afterPath="$PROJECT_DIR$/template/Messages.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/Navigation.php" afterPath="$PROJECT_DIR$/template/Navigation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/PeriodNavigator.php" afterPath="$PROJECT_DIR$/template/PeriodNavigator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/SideMenu.php" afterPath="$PROJECT_DIR$/template/SideMenu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Application/AppointmentChainTest.php" afterPath="$PROJECT_DIR$/tests/Application/AppointmentChainTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Application/AppointmentItemTest.php" afterPath="$PROJECT_DIR$/tests/Application/AppointmentItemTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Application/AppointmentMatcherTest.php" afterPath="$PROJECT_DIR$/tests/Application/AppointmentMatcherTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Application/BookingChangeTest.php" afterPath="$PROJECT_DIR$/tests/Application/BookingChangeTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Application/BookingOrderTest.php" afterPath="$PROJECT_DIR$/tests/Application/BookingOrderTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Application/EmpItemTest.php" afterPath="$PROJECT_DIR$/tests/Application/EmpItemTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Application/RoomItemTest.php" afterPath="$PROJECT_DIR$/tests/Application/RoomItemTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Controllers/BaseControllerTest.php" afterPath="$PROJECT_DIR$/tests/Controllers/BaseControllerTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Controllers/BookControllerTest.php" afterPath="$PROJECT_DIR$/tests/Controllers/BookControllerTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Controllers/BookSingleEventRight.csv" afterPath="$PROJECT_DIR$/tests/Controllers/BookSingleEventRight.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Controllers/BookSingleEventRightEvents.csv" afterPath="$PROJECT_DIR$/tests/Controllers/BookSingleEventRightEvents.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Core/ApplicationTest.php" afterPath="$PROJECT_DIR$/tests/Core/ApplicationTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Core/RegistryTest.php" afterPath="$PROJECT_DIR$/tests/Core/RegistryTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/DBMappers/AppointmentItemMapperData.csv" afterPath="$PROJECT_DIR$/tests/DBMappers/AppointmentItemMapperData.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/DBMappers/AppointmentItemMapperTest.php" afterPath="$PROJECT_DIR$/tests/DBMappers/AppointmentItemMapperTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Helpers/CsvImporter.php" afterPath="$PROJECT_DIR$/tests/Helpers/CsvImporter.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Helpers/CsvImporterTest.php" afterPath="$PROJECT_DIR$/tests/Helpers/CsvImporterTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Helpers/DummyMagic.php" afterPath="$PROJECT_DIR$/tests/Helpers/DummyMagic.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Helpers/DummyMagicTest.php" afterPath="$PROJECT_DIR$/tests/Helpers/DummyMagicTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Helpers/ObjVarsTest.php" afterPath="$PROJECT_DIR$/tests/Helpers/ObjVarsTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Helpers/OtherDependent.php" afterPath="$PROJECT_DIR$/tests/Helpers/OtherDependent.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Helpers/StaticFieldIterator.php" afterPath="$PROJECT_DIR$/tests/Helpers/StaticFieldIterator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Helpers/TablesClearScript.php" afterPath="$PROJECT_DIR$/tests/Helpers/TablesClearScript.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Helpers/Test.php" afterPath="$PROJECT_DIR$/tests/Helpers/Test.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/SplClassLoader.php" afterPath="$PROJECT_DIR$/tests/SplClassLoader.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Utility/DependencyInjectionTest.php" afterPath="$PROJECT_DIR$/tests/Utility/DependencyInjectionTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/bootstrap.php" afterPath="$PROJECT_DIR$/tests/bootstrap.php" />
     </list>
     <ignored path="boardroom.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -136,44 +26,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Calendar.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/template/Calendar.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Book.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/Controllers/Book.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="85" column="59" selection-start-line="85" selection-start-column="59" selection-end-line="85" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Details.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/Controllers/Details.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-25.37037">
-              <caret line="137" column="38" selection-start-line="137" selection-start-column="38" selection-end-line="137" selection-end-column="38" />
-              <folding>
-                <element signature="e#3038#6383#0#PHP" expanded="false" />
-                <marker date="1462391366806" expanded="true" signature="5258:5276" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.04400978">
-              <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+            <state vertical-scroll-proportion="-22.962963">
+              <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Http.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/classes/Core/Http.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.55012226">
+              <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -187,14 +54,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/classes/Core/Application.php" />
         <option value="$PROJECT_DIR$/include/autoload.php" />
         <option value="$PROJECT_DIR$/classes/Utility/Template.php" />
-        <option value="$PROJECT_DIR$/include/constants.php" />
         <option value="$PROJECT_DIR$/readme.txt" />
         <option value="$PROJECT_DIR$/template/Calendar.php" />
         <option value="$PROJECT_DIR$/my_errors.txt" />
+        <option value="$PROJECT_DIR$/include/constants.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/classes/Core/Http.php" />
       </list>
     </option>
   </component>
@@ -267,7 +135,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="classes" />
+              <option name="myItemId" value="include" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -282,10 +150,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="classes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -353,7 +217,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914287" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -401,13 +265,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/classes/Utility/DateHelper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="5" selection-start-line="13" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/Application/AppointmentItem.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -590,20 +447,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Core/Application.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42553192">
-          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/constants.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21276596">
-          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/autoload.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.12765957">
@@ -730,25 +573,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Controllers/Book.php">
+    <entry file="file://$PROJECT_DIR$/include/constants.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="85" column="59" selection-start-line="85" selection-start-column="59" selection-end-line="85" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/Calendar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.2245283">
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Controllers/Details.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-25.37037">
+        <state vertical-scroll-proportion="1.2924528">
           <caret line="137" column="38" selection-start-line="137" selection-start-column="38" selection-end-line="137" selection-end-column="38" />
           <folding>
             <element signature="e#3038#6383#0#PHP" expanded="false" />
@@ -757,10 +592,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Controllers/Book.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.033962265">
+          <caret line="85" column="59" selection-start-line="85" selection-start-column="59" selection-end-line="85" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/Calendar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.033962265">
+          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Core/Application.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3435208">
+          <caret line="110" column="20" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.04400978">
-          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+        <state vertical-scroll-proportion="-22.962963">
+          <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Core/Http.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.55012226">
+          <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
           <folding />
         </state>
       </provider>
