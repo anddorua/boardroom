@@ -10,9 +10,18 @@ Boardroom booker
 
 На сайте используется файл .htaccess для установки редиректа на файл index.php
 
-Распакуйте сайт в папку на сервере (можно в корень, можно в подпапку).
-На сервере MySQL создайте пустую базу данных и пользователя с правами
+Мануал по установке Apache / PHP / MySQL и начальной настройке веб-сервера см. http://i-leon.ru/ustanovka-i-nastrojka-apache-php-mysql-na-centos-pma-i-ftp/
+
+Распакуйте сайт в папку на сервере (можно в корень, можно в подпапку) или, если скачиваете с гитхаба в текущий каталог:
+git clone https://github.com/anddorua/boardroom
+На сервере MySQL создайте пустую базу данных (сейчас прописано boardroom) и пользователя (сейчас прописано boardroom) с правами
 на создание таблиц и работу с ними.
+Пример создания базы и пользователя:
+1) зайти в MySQL: mysql -u root -p<root_password>
+2) create database boardroom;
+3) create user 'boardroom'@'localhost' identified by 'boardroom';
+4) grant all privileges on boardroom.* to 'boardroom'@'localhost'
+5) flush privileges;
 
 В файле include/constants.php пропишите константы для входа в базу данных.
 В браузере зайдите на сайт.
