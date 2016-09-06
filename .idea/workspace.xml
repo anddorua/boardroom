@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cc60e67c-406f-4a9d-aaa6-b352a3adb8f8" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Application/AppointmentChain.php" afterPath="$PROJECT_DIR$/classes/Application/AppointmentChain.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Application/AppointmentItem.php" afterPath="$PROJECT_DIR$/classes/Application/AppointmentItem.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Application/AppointmentMatcher.php" afterPath="$PROJECT_DIR$/classes/Application/AppointmentMatcher.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Application/BookingChange.php" afterPath="$PROJECT_DIR$/classes/Application/BookingChange.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Application/BookingOrder.php" afterPath="$PROJECT_DIR$/classes/Application/BookingOrder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Application/EmpItem.php" afterPath="$PROJECT_DIR$/classes/Application/EmpItem.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Application/RoomItem.php" afterPath="$PROJECT_DIR$/classes/Application/RoomItem.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Controllers/BaseController.php" afterPath="$PROJECT_DIR$/classes/Controllers/BaseController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Controllers/Book.php" afterPath="$PROJECT_DIR$/classes/Controllers/Book.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Controllers/Browse.php" afterPath="$PROJECT_DIR$/classes/Controllers/Browse.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Controllers/DefaultController.php" afterPath="$PROJECT_DIR$/classes/Controllers/DefaultController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Controllers/Details.php" afterPath="$PROJECT_DIR$/classes/Controllers/Details.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Controllers/DetailsReturn.php" afterPath="$PROJECT_DIR$/classes/Controllers/DetailsReturn.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Controllers/Employee.php" afterPath="$PROJECT_DIR$/classes/Controllers/Employee.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Controllers/EmployeeList.php" afterPath="$PROJECT_DIR$/classes/Controllers/EmployeeList.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Controllers/Login.php" afterPath="$PROJECT_DIR$/classes/Controllers/Login.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Core/Application.php" afterPath="$PROJECT_DIR$/classes/Core/Application.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Core/ArrayCapable.php" afterPath="$PROJECT_DIR$/classes/Core/ArrayCapable.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Core/BaseApplication.php" afterPath="$PROJECT_DIR$/classes/Core/BaseApplication.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Core/Database.php" afterPath="$PROJECT_DIR$/classes/Core/Database.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Core/ENoDatabaseSet.php" afterPath="$PROJECT_DIR$/classes/Core/ENoDatabaseSet.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Core/Http.php" afterPath="$PROJECT_DIR$/classes/Core/Http.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Core/Registry.php" afterPath="$PROJECT_DIR$/classes/Core/Registry.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Core/Router.php" afterPath="$PROJECT_DIR$/classes/Core/Router.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Core/Session.php" afterPath="$PROJECT_DIR$/classes/Core/Session.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Core/View.php" afterPath="$PROJECT_DIR$/classes/Core/View.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/DBMappers/AppointmentItem.php" afterPath="$PROJECT_DIR$/classes/DBMappers/AppointmentItem.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/DBMappers/EmpItem.php" afterPath="$PROJECT_DIR$/classes/DBMappers/EmpItem.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/DBMappers/ObjectMapper.php" afterPath="$PROJECT_DIR$/classes/DBMappers/ObjectMapper.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/DBMappers/RoomItem.php" afterPath="$PROJECT_DIR$/classes/DBMappers/RoomItem.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Utility/DatabaseCreateScript.php" afterPath="$PROJECT_DIR$/classes/Utility/DatabaseCreateScript.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Utility/DateHelper.php" afterPath="$PROJECT_DIR$/classes/Utility/DateHelper.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Utility/DependencyInjection.php" afterPath="$PROJECT_DIR$/classes/Utility/DependencyInjection.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Utility/DependencyInjectionStorage.php" afterPath="$PROJECT_DIR$/classes/Utility/DependencyInjectionStorage.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Utility/EDIException.php" afterPath="$PROJECT_DIR$/classes/Utility/EDIException.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Utility/EDINoInstanceInjected.php" afterPath="$PROJECT_DIR$/classes/Utility/EDINoInstanceInjected.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Utility/EDINoOriginalMethod.php" afterPath="$PROJECT_DIR$/classes/Utility/EDINoOriginalMethod.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Utility/EDINoTypeHint.php" afterPath="$PROJECT_DIR$/classes/Utility/EDINoTypeHint.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Utility/HtmlHelper.php" afterPath="$PROJECT_DIR$/classes/Utility/HtmlHelper.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Utility/Template.php" afterPath="$PROJECT_DIR$/classes/Utility/Template.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Utility/Validator.php" afterPath="$PROJECT_DIR$/classes/Utility/Validator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/BaseVidget.php" afterPath="$PROJECT_DIR$/classes/Vidgets/BaseVidget.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/Book.php" afterPath="$PROJECT_DIR$/classes/Vidgets/Book.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/Calendar.php" afterPath="$PROJECT_DIR$/classes/Vidgets/Calendar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/Details.php" afterPath="$PROJECT_DIR$/classes/Vidgets/Details.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/DetailsCaption.php" afterPath="$PROJECT_DIR$/classes/Vidgets/DetailsCaption.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/EmpListMessage.php" afterPath="$PROJECT_DIR$/classes/Vidgets/EmpListMessage.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/Employee.php" afterPath="$PROJECT_DIR$/classes/Vidgets/Employee.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/EmployeeList.php" afterPath="$PROJECT_DIR$/classes/Vidgets/EmployeeList.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/Error.php" afterPath="$PROJECT_DIR$/classes/Vidgets/Error.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/Informer.php" afterPath="$PROJECT_DIR$/classes/Vidgets/Informer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/LoginForm.php" afterPath="$PROJECT_DIR$/classes/Vidgets/LoginForm.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/Messages.php" afterPath="$PROJECT_DIR$/classes/Vidgets/Messages.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/Navigation.php" afterPath="$PROJECT_DIR$/classes/Vidgets/Navigation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/PeriodNavigator.php" afterPath="$PROJECT_DIR$/classes/Vidgets/PeriodNavigator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/Vidgets/SideMenu.php" afterPath="$PROJECT_DIR$/classes/Vidgets/SideMenu.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/boardroom.css" afterPath="$PROJECT_DIR$/css/boardroom.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/autoload.php" afterPath="$PROJECT_DIR$/include/autoload.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/boardroom.sql" afterPath="$PROJECT_DIR$/include/boardroom.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/constants.php" afterPath="$PROJECT_DIR$/include/constants.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phpunit.xml" afterPath="$PROJECT_DIR$/phpunit.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme.txt" afterPath="$PROJECT_DIR$/readme.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/Book.php" afterPath="$PROJECT_DIR$/template/Book.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/BookTemplate.php" afterPath="$PROJECT_DIR$/template/BookTemplate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/BrowseTemplate.php" afterPath="$PROJECT_DIR$/template/BrowseTemplate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/Calendar.php" afterPath="$PROJECT_DIR$/template/Calendar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/Details.php" afterPath="$PROJECT_DIR$/template/Details.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/DetailsCaption.php" afterPath="$PROJECT_DIR$/template/DetailsCaption.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/DetailsReturnTemplate.html" afterPath="$PROJECT_DIR$/template/DetailsReturnTemplate.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/DetailsTemplate.php" afterPath="$PROJECT_DIR$/template/DetailsTemplate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/EmpListMessage.php" afterPath="$PROJECT_DIR$/template/EmpListMessage.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/Employee.php" afterPath="$PROJECT_DIR$/template/Employee.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/EmployeeList.php" afterPath="$PROJECT_DIR$/template/EmployeeList.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/EmployeeListTemplate.php" afterPath="$PROJECT_DIR$/template/EmployeeListTemplate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/EmployeeTemplate.php" afterPath="$PROJECT_DIR$/template/EmployeeTemplate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/Error.php" afterPath="$PROJECT_DIR$/template/Error.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/Informer.php" afterPath="$PROJECT_DIR$/template/Informer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/LoginForm.php" afterPath="$PROJECT_DIR$/template/LoginForm.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/LoginTemplate.html" afterPath="$PROJECT_DIR$/template/LoginTemplate.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/Messages.php" afterPath="$PROJECT_DIR$/template/Messages.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/Navigation.php" afterPath="$PROJECT_DIR$/template/Navigation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/PeriodNavigator.php" afterPath="$PROJECT_DIR$/template/PeriodNavigator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/SideMenu.php" afterPath="$PROJECT_DIR$/template/SideMenu.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Application/AppointmentChainTest.php" afterPath="$PROJECT_DIR$/tests/Application/AppointmentChainTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Application/AppointmentItemTest.php" afterPath="$PROJECT_DIR$/tests/Application/AppointmentItemTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Application/AppointmentMatcherTest.php" afterPath="$PROJECT_DIR$/tests/Application/AppointmentMatcherTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Application/BookingChangeTest.php" afterPath="$PROJECT_DIR$/tests/Application/BookingChangeTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Application/BookingOrderTest.php" afterPath="$PROJECT_DIR$/tests/Application/BookingOrderTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Application/EmpItemTest.php" afterPath="$PROJECT_DIR$/tests/Application/EmpItemTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Application/RoomItemTest.php" afterPath="$PROJECT_DIR$/tests/Application/RoomItemTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Controllers/BaseControllerTest.php" afterPath="$PROJECT_DIR$/tests/Controllers/BaseControllerTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Controllers/BookControllerTest.php" afterPath="$PROJECT_DIR$/tests/Controllers/BookControllerTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Controllers/BookSingleEventRight.csv" afterPath="$PROJECT_DIR$/tests/Controllers/BookSingleEventRight.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Controllers/BookSingleEventRightEvents.csv" afterPath="$PROJECT_DIR$/tests/Controllers/BookSingleEventRightEvents.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Core/ApplicationTest.php" afterPath="$PROJECT_DIR$/tests/Core/ApplicationTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Core/RegistryTest.php" afterPath="$PROJECT_DIR$/tests/Core/RegistryTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/DBMappers/AppointmentItemMapperData.csv" afterPath="$PROJECT_DIR$/tests/DBMappers/AppointmentItemMapperData.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/DBMappers/AppointmentItemMapperTest.php" afterPath="$PROJECT_DIR$/tests/DBMappers/AppointmentItemMapperTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Helpers/CsvImporter.php" afterPath="$PROJECT_DIR$/tests/Helpers/CsvImporter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Helpers/CsvImporterTest.php" afterPath="$PROJECT_DIR$/tests/Helpers/CsvImporterTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Helpers/DummyMagic.php" afterPath="$PROJECT_DIR$/tests/Helpers/DummyMagic.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Helpers/DummyMagicTest.php" afterPath="$PROJECT_DIR$/tests/Helpers/DummyMagicTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Helpers/ObjVarsTest.php" afterPath="$PROJECT_DIR$/tests/Helpers/ObjVarsTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Helpers/OtherDependent.php" afterPath="$PROJECT_DIR$/tests/Helpers/OtherDependent.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Helpers/StaticFieldIterator.php" afterPath="$PROJECT_DIR$/tests/Helpers/StaticFieldIterator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Helpers/TablesClearScript.php" afterPath="$PROJECT_DIR$/tests/Helpers/TablesClearScript.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Helpers/Test.php" afterPath="$PROJECT_DIR$/tests/Helpers/Test.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/SplClassLoader.php" afterPath="$PROJECT_DIR$/tests/SplClassLoader.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Utility/DependencyInjectionTest.php" afterPath="$PROJECT_DIR$/tests/Utility/DependencyInjectionTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/bootstrap.php" afterPath="$PROJECT_DIR$/tests/bootstrap.php" />
+    </list>
+    <ignored path="boardroom.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="boardroom" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Calendar.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/template/Calendar.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Book.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/Controllers/Book.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="85" column="59" selection-start-line="85" selection-start-column="59" selection-end-line="85" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Details.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/Controllers/Details.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-25.37037">
+              <caret line="137" column="38" selection-start-line="137" selection-start-column="38" selection-end-line="137" selection-end-column="38" />
+              <folding>
+                <element signature="e#3038#6383#0#PHP" expanded="false" />
+                <marker date="1462391366806" expanded="true" signature="5258:5276" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.04400978">
+              <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/classes/Core/Application.php" />
+        <option value="$PROJECT_DIR$/include/autoload.php" />
+        <option value="$PROJECT_DIR$/classes/Utility/Template.php" />
+        <option value="$PROJECT_DIR$/include/constants.php" />
+        <option value="$PROJECT_DIR$/readme.txt" />
+        <option value="$PROJECT_DIR$/template/Calendar.php" />
+        <option value="$PROJECT_DIR$/my_errors.txt" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="65" />
+    <option name="y" value="24" />
+    <option name="width" value="1205" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boardroom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boardroom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boardroom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boardroom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boardroom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boardroom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boardroom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../yii-boardroom" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <envs />
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cc60e67c-406f-4a9d-aaa6-b352a3adb8f8" name="Default" comment="" />
+      <created>1462391382385</created>
+      <option name="number" value="Default" />
+      <updated>1462391382385</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="65" y="24" width="1205" height="1000" extended-state="4" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29421917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32890365" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3071001" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32890365" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/classes/Utility/DateHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="5" selection-start-line="13" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Application/AppointmentItem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="72" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/boardroom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="271" column="17" selection-start-line="271" selection-start-column="17" selection-end-line="271" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/Calendar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my_errors.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Core/Session.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="59" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/PeriodNavigator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Controllers/Browse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Utility/DateHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="5" selection-start-line="13" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Application/AppointmentItem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="72" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/boardroom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="271" column="17" selection-start-line="271" selection-start-column="17" selection-end-line="271" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/Calendar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/PeriodNavigator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Controllers/Browse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Utility/DateHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="5" selection-start-line="13" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Application/AppointmentItem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="72" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/boardroom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="271" column="17" selection-start-line="271" selection-start-column="17" selection-end-line="271" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/Calendar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/Calendar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Utility/DateHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="5" selection-start-line="13" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/Calendar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="4" selection-start-line="0" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Utility/DateHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="5" selection-start-line="13" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Application/AppointmentItem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Application/EmpItem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Application/EmpItem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Application/EmpItem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Application/EmpItem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Core/Application.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42553192">
+          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/constants.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21276596">
+          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/autoload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12765957">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16494845">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06185567">
+          <caret line="3" column="45" selection-start-line="3" selection-start-column="45" selection-end-line="3" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Utility/Template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23404256">
+          <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Application/EmpItem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3617021">
+          <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/boardroom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="271" column="17" selection-start-line="271" selection-start-column="17" selection-end-line="271" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Utility/DateHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="5" selection-start-line="13" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Controllers/Browse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/PeriodNavigator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Application/BookingChange.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Core/Session.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19148937">
+          <caret line="26" column="59" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Application/AppointmentItem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0412371">
+          <caret line="149" column="9" selection-start-line="149" selection-start-column="9" selection-end-line="149" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Application/AppointmentChain.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45360824">
+          <caret line="27" column="45" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Application/BookingOrder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.185567">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/DBMappers/AppointmentItem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.92783505">
+          <caret line="50" column="53" selection-start-line="50" selection-start-column="53" selection-end-line="50" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Application/AppointmentMatcher.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0412371">
+          <caret line="72" column="34" selection-start-line="72" selection-start-column="34" selection-end-line="72" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/Book.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="89" column="75" selection-start-line="89" selection-start-column="75" selection-end-line="89" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my_errors.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Controllers/Book.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="85" column="59" selection-start-line="85" selection-start-column="59" selection-end-line="85" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/Calendar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Controllers/Details.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-25.37037">
+          <caret line="137" column="38" selection-start-line="137" selection-start-column="38" selection-end-line="137" selection-end-column="38" />
+          <folding>
+            <element signature="e#3038#6383#0#PHP" expanded="false" />
+            <marker date="1462391366806" expanded="true" signature="5258:5276" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04400978">
+          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

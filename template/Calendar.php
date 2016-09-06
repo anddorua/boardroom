@@ -12,6 +12,7 @@
         return false;
     }
 </script>
+
 <table>
     <thead><tr>
         <?php

@@ -4,7 +4,9 @@ Boardroom booker
 Система создавалась на следующем ПО:
 - PHP v5.4.7
 - MySQL v5.5.27
-- Apache HTTP server v2.4.3 с включенным модулем mode_rewrite
+- Apache HTTP server v2.4.3 с включенным модулем mod_rewrite
+
+Для работы mod_rewrite на Ubuntu см. мануал https://www.digitalocean.com/community/tutorials/how-to-set-up-mod_rewrite-for-apache-on-ubuntu-14-04
 
 На сайте используется файл .htaccess для установки редиректа на файл index.php
 

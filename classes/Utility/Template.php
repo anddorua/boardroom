@@ -24,7 +24,7 @@ class Template
         }
 
         ob_start();
-        include TEMPLATE_ROOT . "/" . strtolower($content_file);
+        include TEMPLATE_ROOT . "/" . $content_file;
         return ob_get_clean();
     }
 }

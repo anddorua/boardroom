@@ -12,8 +12,8 @@
 define('DB_HOST', 'localhost'); // mysql server host
 define('DB_NAME', 'boardroom');
 //define('DB_NAME', 'bdr_test'); // database name
-define('DB_USER', 'root'); // database user
-define('DB_PASSWORD', ''); // user password
+define('DB_USER', 'boardroom'); // database user
+define('DB_PASSWORD', 'boardroom'); // user password
 
 /**
  *  Do NOT edit following lines

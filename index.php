@@ -9,14 +9,14 @@ require_once("include/constants.php");
 require_once("include/autoload.php");
 // state templates: [state] => [template file name]
 $templateMap = array(
-    Core\Application::STATE_LOGIN => "LoginTemplate.html",
-    Core\Application::STATE_BROWSE => "BrowseTemplate.php",
-    Core\Application::STATE_EMPLOYEE => "EmployeeTemplate.php",
-    Core\Application::STATE_EMPLOYEE_LIST => "EmployeeListTemplate.php",
-    Core\Application::STATE_BOOK => "BookTemplate.php",
-    Core\Application::STATE_DETAILS => "DetailsTemplate.php",
-    Core\Application::STATE_DETAILS_RETURN => "DetailsReturnTemplate.html",
-    Core\Application::STATE_REDIRECT => null,
+    \Core\Application::STATE_LOGIN => "LoginTemplate.html",
+    \Core\Application::STATE_BROWSE => "BrowseTemplate.php",
+    \Core\Application::STATE_EMPLOYEE => "EmployeeTemplate.php",
+    \Core\Application::STATE_EMPLOYEE_LIST => "EmployeeListTemplate.php",
+    \Core\Application::STATE_BOOK => "BookTemplate.php",
+    \Core\Application::STATE_DETAILS => "DetailsTemplate.php",
+    \Core\Application::STATE_DETAILS_RETURN => "DetailsReturnTemplate.html",
+    \Core\Application::STATE_REDIRECT => null,
 );
 // vidget templates: [vidget class name (like in data-vidgets attribute)] => [template file name]
 $vidgetViews = array(
